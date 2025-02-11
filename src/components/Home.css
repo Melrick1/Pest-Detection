@@ -2,36 +2,30 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10rem;
+    gap: 5rem;
     margin-top: 5rem;
     width: 100vw;
     justify-content: center;
 }
 
-.flex-card{
-    max-width: 35rem;
+.home-containers{
+    max-width: 40rem;
 }
 
-.input-box{
-    border: 3px solid gray;
-    border-radius: 1rem;
-    height: 20rem;
-    width: 30rem;
-    background-size: cover;
-}
-
-.input-box:hover{
+.input-container:hover{
+    cursor: pointer;
     border: 3px solid white;
     box-shadow: 0 0 15px rgba(0, 150, 255, 0.6)
-}
-
-h1 {
-    font-size : 32px;
-    margin: 0;
 }
 
 .file-properties{
     text-align: center;
     font-weight: bold;
     font-size: 18px;
+}
+
+.deteksi{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
 }

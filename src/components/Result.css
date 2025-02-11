@@ -1,0 +1,44 @@
+.Result{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 3rem;
+    width: 100vw;
+}
+
+.result-containers{
+    margin: 1rem auto 0rem auto;
+}
+
+.go-back{
+    margin: 0rem 1rem;
+}
+
+.image-container{
+    border: 3px solid gray;
+    border-radius: 1rem;
+    width: 480px;
+    aspect-ratio: 16 / 9;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pest-description{
+    width: 80vw;
+    min-height: 10rem;
+    border: 2px solid;
+    border-radius: 1rem;
+}
+
+.pest-description *{
+    margin: 1rem 1rem;
+}
+
+.pest-description pre {
+    white-space: pre-wrap; /* Preserves formatting but wraps long text */
+    word-wrap: break-word;  /* Ensures long words break properly */
+    overflow-wrap: break-word; /* Extra safeguard for long words */
+    max-width: 100%; /* Prevents it from exceeding the container */
+}
+
