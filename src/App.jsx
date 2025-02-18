@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Home from './components/Home'
-import Result from './components/Result'
+import Home from './components/LandingPage/Home'
+import Result from './components/LandingPage/Result'
 
 function App() {
   const [page, setPage] = useState("home");

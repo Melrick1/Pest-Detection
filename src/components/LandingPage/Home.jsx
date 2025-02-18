@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import {useDropzone} from 'react-dropzone'
-import analyzeImage from '../config/GeminiAPI';
+import analyzeImage from '../../config/GeminiAPI';
 import './Home.css'
 
 function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
@@ -27,8 +27,7 @@ function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
             setBase64Image(base64Data); // Store Base64 for API request
         }
     }, [])
-    
-    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, accept: {'image/*' : []},})
+    const {getRootProps, getInputProps} = useDropzone({onDrop, accept: {'image/*' : []},})
 
     function formatFileSize(size) {
         if (size >= 1024 * 1024) {
