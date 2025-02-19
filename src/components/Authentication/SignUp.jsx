@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router'
-import { SignUp } from './AuthFunctions/AuthFunction.jsx';
-import usePasswordToggle from './AuthFunctions/ShowPassword.jsx';
+import { AuthSignUp } from './AuthFunction.jsx';
+import usePasswordToggle from './ShowPassword.jsx';
 
-const Register = () => {
+const SignUp = () => {
     const { showPassword1, showPassword2, handleTogglePassword1, handleTogglePassword2 } = usePasswordToggle();
 
     //Firebase Auth
@@ -18,7 +18,7 @@ const Register = () => {
 
         // Check if invalid
         if (Name.trim() === ""){
-            setErrorMessage("Nama Lengkap diperlukan")
+            setErrorMessage("Nama pengguna diperlukan")
             return;
         }
         if (password1 !== password2) {
@@ -26,12 +26,12 @@ const Register = () => {
             return;
         }
 
-        SignUp(Name, email, password1, setErrorMessage);
+        AuthSignUp(Name, email, password1, setErrorMessage);
     }
 
     return(
-        <section className='hero'>
-            <div className="login-container register-container">
+        <section>
+            <div className="auth-container signup-container">
                 <h1>Sign-Up</h1>
 
                 <p className={errorMessage == "Sign Up Berhasil" ? "success auth-message" : "error auth-message"}>&nbsp;{errorMessage}</p>
@@ -41,7 +41,7 @@ const Register = () => {
                     {/* Name input */}
                     <div className="form-content">
                         <input
-                            className='inputbox typed'
+                            className='inputbox email'
                             type="text"
                             placeholder="Nama pengguna"
                             value={Name}
@@ -52,7 +52,7 @@ const Register = () => {
                     {/* Email input */}
                     <div className="form-content">
                         <input
-                            className='inputbox typed'
+                            className='inputbox email'
                             type="email"
                             placeholder="Email Address"
                             value={email}
@@ -65,7 +65,7 @@ const Register = () => {
                         <input 
                             className='inputbox pass' 
                             type={showPassword1 ? "text" : "password"}  
-                            placeholder="Re-enter Password"
+                            placeholder="Password"
                             value={password1}
                             onChange={(e) => setPassword1(e.target.value)}>
                         </input>
@@ -79,7 +79,7 @@ const Register = () => {
                         <input 
                             className='inputbox pass' 
                             type={showPassword2 ? "text" : "password"}  
-                            placeholder="Re-enter Password"
+                            placeholder="Masukkan Kembali Password"
                             value={password2}
                             onChange={(e) => setPassword2(e.target.value)}>
                         </input>
@@ -89,11 +89,11 @@ const Register = () => {
                     </div>
 
                     <Link to="/">Back to login</Link>
-                    <button type="submit" className="link-button login">Sign up</button>
+                    <button type="submit" className="button">Sign up</button>
                 </form>
             </div>
         </section>
     )
 }
 
-export default Register;
+export default SignUp;

@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router'
-import { Authenticate } from './AuthFunctions/AuthFunction.jsx';
-import usePasswordToggle from './AuthFunctions/ShowPassword.jsx';
-import './Signin.css'
+import { Link, useNavigate } from 'react-router'
+import { AuthSignIn } from './AuthFunction.jsx';
+import usePasswordToggle from './ShowPassword.jsx';
+import './AuthStyling.css'
 
 const SignIn = () => {
+    const navigate = useNavigate();
+    
     //Show password
     const { showPassword1, handleTogglePassword1 } = usePasswordToggle();
 
@@ -14,12 +16,12 @@ const SignIn = () => {
 
     const SignInHandler = async (e) => {
         e.preventDefault(); //prevent page reload on form submit
-        Authenticate(email, password, navigate, setErrorMessage);
+        AuthSignIn(email, password, navigate, setErrorMessage);
     }
 
     return(
         <section>
-            <div className="login-container">
+            <div className="auth-container">
                 <h1>Sign-In</h1>
 
                 <p className='error auth-message'>&nbsp;{errorMessage}</p>
@@ -27,7 +29,7 @@ const SignIn = () => {
                     {/* Email input */}
                     <div className="form-content">
                         <input 
-                            className='inputbox typed' 
+                            className='inputbox email' 
                             type="email" 
                             placeholder="Email Address"
                             value={email}
@@ -45,17 +47,16 @@ const SignIn = () => {
                             onChange={(e) => setPassword(e.target.value)}>
                         </input>
                         <span onClick={handleTogglePassword1}>
-                                <i className={`bi bi-eye${showPassword1 ? '-slash' : ''}`}></i>
+                            <i className={`bi bi-eye${showPassword1 ? '-slash' : ''}`}></i>
                         </span>
                     </div>
 
-                    <a className='forgot' href="#">Forgot password?</a>
+                    <a className='forgot' href="/ForgotPass">Lupa password?</a>
                     <div className="buttons-sign-in">
-                        <Link to="/Sign-up" className="link-button prev register">Sign up</Link>
-                        <button type="submit" className="link-button login">Sign in</button>
+                        <button type="submit" className="button">Sign in</button>
+                        <Link to="/Sign-up" className="link-button">Sign up</Link>
                     </div>
                 </form>
-                <Link to="/Home" className="link-button back-to-homepage">Back to Homepage</Link>
             </div>
         </section>
     )

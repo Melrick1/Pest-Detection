@@ -4,14 +4,23 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: black;
   background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow: hidden;
+}
+
+body{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  justify-content: center;
+  background-color: #A5D6A7;
 }
 
 h1 {
@@ -19,11 +28,32 @@ h1 {
   margin: 0;
 }
 
-.button{
+p{
+  font-size: 1rem;
+}
+
+a{
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline ;
+}
+
+a:focus{
+  color: #d6d6d6;
+  text-decoration: underline 
+}
+
+.button, .link-button{
+  padding: 0;
   height: 2.5rem;
   width: 10rem;
   font-size: 16px;
   border-radius: 24px;
+  border: 2px white solid;
 }
 
 .button:hover{
@@ -35,6 +65,18 @@ h1 {
   color: gray;
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+.link-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box; /* Make base size the same as button */
+}
+
+.link-button:hover{
+  text-decoration: none;
 }
 
 .hidden{

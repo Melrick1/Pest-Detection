@@ -50,7 +50,7 @@ function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
             <div className='home-containers title'>
                 <h1>Unggah gambar hama atau serangga tanaman anda di sini</h1>
                 <p>
-                    Unggah gambar tanaman Anda untuk membantu sistem mendeteksi jenis hama atau serangga, memahami dampak serangannya, serta memberikan panduan langkah-langkah penanganan yang efektif agar tanaman tetap sehat dan produktif."
+                    Unggah gambar tanaman Anda untuk membantu sistem mendeteksi jenis hama atau serangga, memahami dampak serangannya, serta memberikan panduan langkah-langkah penanganan yang efektif agar tanaman tetap sehat dan produktif.
                 </p>
             </div>
             <div className='home-containers image'>

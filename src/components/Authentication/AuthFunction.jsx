@@ -1,14 +1,14 @@
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { collection, getDocs, setDoc, query, where, doc } from 'firebase/firestore';
-import { Auth, FS } from '../../../config/FirebaseAPI.js';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+import { collection, setDoc, doc } from 'firebase/firestore';
+import { Auth, FS } from '../../config/FirebaseAPI.js';
 
 {/* User Authentication */}
-const Authenticate = async (email, password, navigate, setErrorMessage) => {
+const AuthSignIn = async (email, password, navigate, setErrorMessage) => {
   try {
     // Sign in with email and password
     await signInWithEmailAndPassword(Auth, email, password);
 
-    navigate('/dashboard')
+    navigate('/Home')
   }
   catch (error) {
     ErrorHandler(error, setErrorMessage);
@@ -16,7 +16,7 @@ const Authenticate = async (email, password, navigate, setErrorMessage) => {
 };
 
 {/* SignUp */}
-const SignUp = async (Name, email, password1, setErrorMessage) => {
+const AuthSignUp = async (Name, email, password1, setErrorMessage) => {
   try {
       // Create user with email and password
       const userCredential = await createUserWithEmailAndPassword(Auth, email, password1);
@@ -30,8 +30,18 @@ const SignUp = async (Name, email, password1, setErrorMessage) => {
       });
 
       // Registered successfully
-      setErrorMessage("Sign Up Berhasil")
+      await setErrorMessage("Sign Up Berhasil")
       console.log("Sign Up Berhasil")
+  }
+  catch (error) {
+    ErrorHandler(error, setErrorMessage);
+  }
+}
+
+const ResetPasswordReq = async (email, setErrorMessage) => {
+  try {
+    await sendPasswordResetEmail(Auth, email)
+    setErrorMessage('Permintahan reset password telah dikirim, cek email anda')
   }
   catch (error) {
     ErrorHandler(error, setErrorMessage);
@@ -63,4 +73,4 @@ const ErrorHandler = (error, setErrorMessage) => {
   }
 }
 
-export { Authenticate, SignUp };
+export { AuthSignIn, AuthSignUp, ResetPasswordReq };

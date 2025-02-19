@@ -14,7 +14,7 @@ const firebaseConfig = {
   storageBucket: "pestdetecto.firebasestorage.app",
   messagingSenderId: "637541259245",
   appId: "1:637541259245:web:b3584e87a654560143f9e4",
-  measurementId: "G-2B6NY3QGCG"
+  measurementId : "G-2B6NY3QGCG"
 };
 
 // Initialize Firebase
