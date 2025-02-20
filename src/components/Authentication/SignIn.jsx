@@ -20,10 +20,9 @@ const SignIn = () => {
     }
 
     return(
-        <section>
+        <section className='hero'>
             <div className="auth-container">
-                <h1>Sign-In</h1>
-
+                <h3>Sign-In</h3>
                 <p className='error auth-message'>&nbsp;{errorMessage}</p>
                 <form onSubmit={SignInHandler}>
                     {/* Email input */}
@@ -51,8 +50,8 @@ const SignIn = () => {
                         </span>
                     </div>
 
-                    <a className='forgot' href="/ForgotPass">Lupa password?</a>
-                    <div className="buttons-sign-in">
+                    <Link to="/ForgotPass" className='forgot' >Lupa password?</Link>
+                    <div className="buttons-auth">
                         <button type="submit" className="button">Sign in</button>
                         <Link to="/Sign-up" className="link-button">Sign up</Link>
                     </div>

@@ -4,8 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: black;
-  background-color: #242424;
+  color: #262626;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,12 +19,23 @@ body{
   padding: 0;
   min-height: 100vh;
   justify-content: center;
-  background-color: #A5D6A7;
+  background-color: #CDFFEE;
+}
+
+body *{
+  margin: 0;
 }
 
 h1 {
-  font-size : 32px;
-  margin: 0;
+  font-size : 40px;
+}
+
+h2{
+  font-size: 32px;
+}
+
+h3{
+  font-size: 24px;
 }
 
 p{
@@ -34,30 +44,36 @@ p{
 
 a{
   display: block;
-  color: white;
   text-decoration: none;
+  color: #262626;
 }
 
 a:hover{
   text-decoration: underline ;
 }
 
-a:focus{
-  color: #d6d6d6;
+a:active{
   text-decoration: underline 
 }
 
 .button, .link-button{
   padding: 0;
-  height: 2.5rem;
+  height: 3rem;
   width: 10rem;
   font-size: 16px;
-  border-radius: 24px;
-  border: 2px white solid;
+  border-radius: 16px;
+  border: 2px #EAFCF6 solid;
+  background-color: #16AC7A;
+  color: white;
 }
 
 .button:hover{
   cursor: pointer;
+  background-color: #29D79D;
+}
+
+.button:active{
+  background-color: #087E57;
 }
 
 .button:disabled {
@@ -73,10 +89,17 @@ a:focus{
   justify-content: center;
   text-decoration: none;
   box-sizing: border-box; /* Make base size the same as button */
+  background-color: #737373;
 }
 
 .link-button:hover{
   text-decoration: none;
+  background-color: #999999;
+}
+
+.link-button:active{
+  text-decoration: none;
+  background-color: #4D4D4D;
 }
 
 .hidden{

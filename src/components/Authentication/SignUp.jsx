@@ -30,14 +30,11 @@ const SignUp = () => {
     }
 
     return(
-        <section>
-            <div className="auth-container signup-container">
-                <h1>Sign-Up</h1>
-
+        <section className='hero'>
+            <div className="auth-container">
+                <h3>Sign-Up</h3>
                 <p className={errorMessage == "Sign Up Berhasil" ? "success auth-message" : "error auth-message"}>&nbsp;{errorMessage}</p>
                 <form onSubmit={SignUpHandler}>
-                    <label>Masukkan data anda :</label>
-
                     {/* Name input */}
                     <div className="form-content">
                         <input
@@ -88,8 +85,10 @@ const SignUp = () => {
                         </span>
                     </div>
 
-                    <Link to="/">Back to login</Link>
-                    <button type="submit" className="button">Sign up</button>
+                    <Link to="/" className='forgot'>Back to login</Link>
+                    <div className="buttons-auth">
+                        <button type="submit" className="button">Sign up</button>   
+                    </div>
                 </form>
             </div>
         </section>

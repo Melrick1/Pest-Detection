@@ -12,14 +12,13 @@ const ForgotPass = () => {
     }
     
     return(
-        <section>
-            <div className='auth-container'>
-                <h1>Reset <br/>Password</h1>
-
+        <section className='hero'>
+            <h1>Reset <br/>Password</h1>
+            <div className='auth-container forgot-container'>
+                <h3>Masukkan Email anda :</h3>
                 <p className={errorMessage == "Permintahan reset password telah dikirim, cek email anda" ? 
                 "success auth-message" : "error auth-message"}>&nbsp;{errorMessage}</p>
 
-                <label>Masukkan Email anda :</label>
                 <form onSubmit={resetHandler}>
                     <div className="form-content">
                         <input
