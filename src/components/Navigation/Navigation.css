@@ -1,0 +1,108 @@
+header{
+    background-color: rgb(12, 78, 18);
+    width: 100%;
+    height: 3rem;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+}
+
+.hamburger-list{
+    display: flex;
+    width: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger-list i{
+    font-size: 2.5rem;
+}
+
+.hamburger i:hover{
+    cursor: pointer;
+}
+
+.header-title{
+    position: fixed;
+    right: 50%;
+}
+
+.navbar{
+    position: fixed;
+    left: 0;
+    background-color: rgb(12, 78, 18);
+    z-index: 10;
+}
+
+.nav-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item{
+    width: 100%;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    text-decoration: none;
+    color: lightgray;
+    outline: none;
+}
+
+.nav-item i{
+    font-size: 2.5rem;
+    width: 5rem;
+    min-width: 5rem; /* Stops width from changing during transition */
+}
+
+.navbar span{
+    display: none;
+    margin-left: 1rem;
+    overflow-x: hidden;
+}
+
+.navbar:hover span{
+    display: block;
+    opacity: 1;
+}
+
+.active{
+    color: white;
+    background-color: #075509;
+}
+
+.nav-link:hover{
+    color: white;
+}
+
+.nav-link:not(.active):hover{
+    background-color: #06860A;
+    transition: background-color 200ms linear;
+}
+
+/* Large screens */
+@media only screen and (min-width: 481px){
+    .navbar{
+        top: 0;
+        width: 5rem;
+        height: 100%;
+        transition: width 200ms ease;
+    }
+
+    .nav-list{
+        flex-direction: column;
+    }
+
+    .navbar:hover{
+        width: 16rem;
+    }
+}

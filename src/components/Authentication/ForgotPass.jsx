@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router'
 import { ResetPasswordReq } from './AuthFunction';
 
-const ForgotPass = () => {
+function ForgotPass () {
     const [email, setEmail ]= useState('');
     const [errorMessage, setErrorMessage] = useState('')
 
@@ -32,7 +32,7 @@ const ForgotPass = () => {
 
                     <div className="buttons-forgotpass">
                         <button type="submit" className="button">Reset Password</button>
-                        <Link to='/' className="link-button">Kembali</Link>
+                        <Link to='/Sign-in' className="link-button">Kembali</Link>
                     </div>
                 </form>
             </div>

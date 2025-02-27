@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { AuthSignUp } from './AuthFunction.jsx';
 import usePasswordToggle from './ShowPassword.jsx';
 
-const SignUp = () => {
+function SignUp () {
     const { showPassword1, showPassword2, handleTogglePassword1, handleTogglePassword2 } = usePasswordToggle();
 
     //Firebase Auth
@@ -85,7 +85,7 @@ const SignUp = () => {
                         </span>
                     </div>
 
-                    <Link to="/" className='forgot'>Back to login</Link>
+                    <Link to="/Sign-in" className='forgot'>Kembali ke login</Link>
                     <div className="buttons-auth">
                         <button type="submit" className="button">Sign up</button>   
                     </div>

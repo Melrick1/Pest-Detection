@@ -4,7 +4,7 @@ import { AuthSignIn } from './AuthFunction.jsx';
 import usePasswordToggle from './ShowPassword.jsx';
 import './AuthStyling.css'
 
-const SignIn = () => {
+function SignIn() {
     const navigate = useNavigate();
     
     //Show password
@@ -30,7 +30,7 @@ const SignIn = () => {
                         <input 
                             className='inputbox email' 
                             type="email" 
-                            placeholder="Email Address"
+                            placeholder="Alamat Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}>
                         </input>

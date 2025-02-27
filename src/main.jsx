@@ -11,10 +11,10 @@ import ForgotPass from './components/Authentication/ForgotPass.jsx';
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<SignIn />} />
+      <Route path="/Sign-in" element={<SignIn />} />
       <Route path="/Sign-up" element={<SignUp />} />
       <Route path='/ForgotPass' element={<ForgotPass />} />
-      <Route path="/Home" element={<App />} />
+      <Route path="/" element={<App />} />
     </Routes>
   </BrowserRouter>,
 )
