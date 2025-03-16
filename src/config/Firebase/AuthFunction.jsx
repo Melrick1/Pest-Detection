@@ -1,32 +1,27 @@
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
-import { collection, setDoc, doc } from 'firebase/firestore';
-import { Auth, FS } from '../../config/FirebaseAPI.js';
-
-{/* User Authentication */}
-const AuthSignIn = async (email, password, navigate, setErrorMessage) => {
-  try {
-    // Sign in with email and password
-    await signInWithEmailAndPassword(Auth, email, password);
-
-    navigate('/Home')
-  }
-  catch (error) {
-    ErrorHandler(error, setErrorMessage);
-  }
-};
+import { 
+  signInWithEmailAndPassword,
+  signOut, 
+  createUserWithEmailAndPassword, 
+  sendPasswordResetEmail, 
+  updateProfile,  
+} from 'firebase/auth';
+import { setDoc, doc } from 'firebase/firestore';
+import { Auth, FS } from './FirebaseAPI.js';
 
 {/* SignUp */}
 const AuthSignUp = async (Name, email, password1, setErrorMessage) => {
   try {
       // Create user with email and password
       const userCredential = await createUserWithEmailAndPassword(Auth, email, password1);
+      const user = userCredential.user;
 
-      const docName = email
+      // Set display name in Firebase Auth
+      await updateProfile(user, { displayName: Name });
 
-      // Update user profile with data
-      await setDoc(doc(collection(FS, 'users'), docName), {
-          uid: userCredential.user.uid,
+      // Update user data in Firestore
+      await setDoc(doc(FS, 'Users', user.uid), {
           userName: Name,
+          email: email,
       });
 
       // Registered successfully
@@ -35,6 +30,28 @@ const AuthSignUp = async (Name, email, password1, setErrorMessage) => {
   }
   catch (error) {
     ErrorHandler(error, setErrorMessage);
+  }
+}
+
+{/* SignIn */}
+const AuthSignIn = async (email, password, navigate, setErrorMessage) => {
+  try {
+    await signInWithEmailAndPassword(Auth, email, password);
+
+    navigate('/')
+  }
+  catch (error) {
+    ErrorHandler(error, setErrorMessage);
+  }
+};
+
+{/* SignOut */}
+const AuthSignOut = async () => {
+  try {
+    await signOut(Auth);
+    console.log("User signed out successfully");
+  } catch (error) {
+    console.error("Error signing out:", error);
   }
 }
 
@@ -73,4 +90,4 @@ const ErrorHandler = (error, setErrorMessage) => {
   }
 }
 
-export { AuthSignIn, AuthSignUp, ResetPasswordReq };
+export { AuthSignUp, AuthSignIn, AuthSignOut, ResetPasswordReq };

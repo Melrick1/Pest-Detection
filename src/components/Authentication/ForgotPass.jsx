@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router'
-import { ResetPasswordReq } from './AuthFunction';
+import { ResetPasswordReq } from '../../config/Firebase/AuthFunction.jsx';
 
 function ForgotPass () {
     const [email, setEmail ]= useState('');

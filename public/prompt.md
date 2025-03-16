@@ -7,9 +7,7 @@ berikut format output yang saya inginkan :
 
 **- Habitat :**
 
-**- Daerah Tempat Hhidup :**
-
-**- Kerusakan Yang Ditimbulkan :**
+**- Daerah Tempat Hidup :**
 
 **- Cara Pembasmian :**
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router'
-import { AuthSignIn } from './AuthFunction.jsx';
-import usePasswordToggle from './ShowPassword.jsx';
+import { AuthSignIn } from '../../config/Firebase/AuthFunction.jsx';
+import usePasswordToggle from './PasswordToggle.jsx';
 import './AuthStyling.css'
 
 function SignIn() {

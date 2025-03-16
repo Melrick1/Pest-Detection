@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import {useDropzone} from 'react-dropzone'
-import analyzeImage from '../../config/GeminiAPI';
+import analyzeImage from '../../config/Gemini/GeminiAPI';
 import './Home.css'
 
 function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {

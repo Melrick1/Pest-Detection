@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router'
-import { AuthSignUp } from './AuthFunction.jsx';
-import usePasswordToggle from './ShowPassword.jsx';
+import { AuthSignUp } from '../../config/Firebase/AuthFunction.jsx';
+import usePasswordToggle from './PasswordToggle.jsx';
 
 function SignUp () {
     const { showPassword1, showPassword2, handleTogglePassword1, handleTogglePassword2 } = usePasswordToggle();
@@ -51,7 +51,7 @@ function SignUp () {
                         <input
                             className='inputbox email'
                             type="email"
-                            placeholder="Email Address"
+                            placeholder="Alamat Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}>
                         </input>
@@ -76,7 +76,7 @@ function SignUp () {
                         <input 
                             className='inputbox pass' 
                             type={showPassword2 ? "text" : "password"}  
-                            placeholder="Masukkan Kembali Password"
+                            placeholder="Konfirmasi Password"
                             value={password2}
                             onChange={(e) => setPassword2(e.target.value)}>
                         </input>

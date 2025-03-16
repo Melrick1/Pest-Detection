@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MyNavBar from "./MyNavbar";
 
-function MyHeader() {  // ✅ Function name changed
+function MyHeader() {
   const [navOpen, setNavOpen] = useState(false);
 
   const burgerClick = () => {
