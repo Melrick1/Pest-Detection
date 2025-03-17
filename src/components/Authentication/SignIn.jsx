@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router'
 import { AuthSignIn } from '../../config/Firebase/AuthFunction.jsx';
+import { useAuth } from '../../contexts/AuthContext.jsx';
 import usePasswordToggle from './PasswordToggle.jsx';
 import './AuthStyling.css'
 
 function SignIn() {
     const navigate = useNavigate();
+    const { userLoggedIn, currentUser } = useAuth();
     
     //Show password
     const { showPassword1, handleTogglePassword1 } = usePasswordToggle();
@@ -18,6 +20,12 @@ function SignIn() {
         e.preventDefault(); //prevent page reload on form submit
         AuthSignIn(email, password, navigate, setErrorMessage);
     }
+
+    useEffect(() => {
+        if ( userLoggedIn == true) {
+            navigate("/")
+        }
+    }, []);
 
     return(
         <section className='hero'>

@@ -10,14 +10,17 @@ function MyHeader() {
 
   return (
     <header>
-      <div className="hamburger-list">
-        {navOpen ? (
-          <MyNavBar burgerClick={burgerClick} />
+      <div className="hamburger-list" onClick={burgerClick}>
+        {!navOpen ? (
+          <i className="bi bi-list"></i>
         ) : (
-          <i className="bi bi-list" onClick={burgerClick}></i>
+          <>
+            <i className="bi bi-chevron-double-left"></i>
+            <MyNavBar/>
+          </>
         )}
       </div>
-      <h3 className="header-title">Home</h3>
+      <h3 className="header-title">Beranda</h3>
     </header>
   );
 }

@@ -1,5 +1,6 @@
 header{
     background-color: rgb(12, 78, 18);
+    position: fixed;
     width: 100%;
     height: 3rem;
     z-index: 1;
@@ -10,10 +11,17 @@ header{
 }
 
 .hamburger-list{
+    left: 0;
+    position: fixed;
     display: flex;
     width: 5rem;
     justify-content: center;
     align-items: center;
+}
+
+.hamburger-list:hover{
+    cursor: pointer;
+    background-color: #06860A;
 }
 
 .hamburger-list i{
@@ -31,9 +39,13 @@ header{
 
 .navbar{
     position: fixed;
+    top: 0;
     left: 0;
+    height: 100%;
+    margin-top: 5rem;
     background-color: rgb(12, 78, 18);
     z-index: 10;
+    animation: expandNavbar 0.5s ease-in-out forwards; /* Auto expand */
 }
 
 .nav-list{
@@ -41,12 +53,14 @@ header{
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     height: 100%;
 }
 
 .nav-item{
     width: 100%;
+    border-bottom: 1px solid black;
 }
 
 .nav-link {
@@ -56,23 +70,18 @@ header{
     text-decoration: none;
     color: lightgray;
     outline: none;
+    overflow-x: hidden; /*nav items doesn't show through the navlist box*/
 }
 
-.nav-item i{
+.nav-icon{
     font-size: 2.5rem;
+    margin-left: 1rem;
     width: 5rem;
-    min-width: 5rem; /* Stops width from changing during transition */
+    min-width: 5rem;
 }
 
 .navbar span{
-    display: none;
     margin-left: 1rem;
-    overflow-x: hidden;
-}
-
-.navbar:hover span{
-    display: block;
-    opacity: 1;
 }
 
 .active{
@@ -89,20 +98,17 @@ header{
     transition: background-color 200ms linear;
 }
 
-/* Large screens */
-@media only screen and (min-width: 481px){
-    .navbar{
-        top: 0;
-        width: 5rem;
-        height: 100%;
-        transition: width 200ms ease;
-    }
+.profileDetails{
+    display: flex;
+    align-items: center;
+    height: 7rem;
+}
 
-    .nav-list{
-        flex-direction: column;
+@keyframes expandNavbar {
+    from {
+      width: 0rem;
     }
-
-    .navbar:hover{
-        width: 16rem;
+    to {
+      width: 16rem;
     }
 }

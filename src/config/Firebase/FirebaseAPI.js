@@ -25,15 +25,4 @@ const analytics = getAnalytics(app);
 const Auth = getAuth(app);
 const FS = getFirestore(app);
 
-// Observer to check the user's authentication state
-onAuthStateChanged(Auth, (user) => {
-  if (user) {
-    // User is signed in
-    console.log('User is signed in:', user.uid);
-  } else {
-    // User is signed out
-    console.log('User is signed out');
-  }
-});
-
 export { Auth, FS };

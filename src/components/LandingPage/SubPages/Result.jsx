@@ -1,7 +1,7 @@
-import './Result.css'
+import '../Stylings/Result.css'
 import ReactMarkdown from 'react-markdown';
 
-function Result ({imagePreview, setPage, analysisResult}){
+function Result ({imagePreview, setPage, analysisResult}) {
     return(
         <section className="Result">
             <button className="button go-back'" onClick={() => setPage("home")}>

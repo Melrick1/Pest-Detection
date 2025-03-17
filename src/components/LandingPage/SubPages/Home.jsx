@@ -1,11 +1,13 @@
 import { useState, useCallback } from 'react';
 import {useDropzone} from 'react-dropzone'
-import analyzeImage from '../../config/Gemini/GeminiAPI';
-import './Home.css'
+import analyzeImage from '../../../config/Gemini/GeminiAPI';
+import { useAuth } from '../../../contexts/AuthContext';
+import '../Stylings/Home.css'
 
 function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
     const [file, setFile] = useState();
     const [base64Image, setBase64Image] = useState();
+    const { userLoggedIn, currentUser } = useAuth();
 
     // Convert image file to Base64
     function fileToBase64(file) {
@@ -48,7 +50,13 @@ function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
     return(
         <section className='Home'>
             <div className='home-containers title'>
-                <h1>Unggah gambar hama atau serangga tanaman anda di sini</h1>
+                {userLoggedIn ?(
+                    <h2>Selamat datang, {currentUser.displayName}</h2>
+                ) : (
+                    <h2>Selamat datang, anda belum SignIn!</h2>
+                )}
+                
+                <h2>Unggah gambar hama atau serangga tanaman anda di sini</h2>
                 <p>
                     Unggah gambar tanaman Anda untuk membantu sistem mendeteksi jenis hama atau serangga, memahami dampak serangannya, serta memberikan panduan langkah-langkah penanganan yang efektif agar tanaman tetap sehat dan produktif.
                 </p>
