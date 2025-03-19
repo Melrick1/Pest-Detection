@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router'
-import { AuthSignUp } from '../../config/Firebase/AuthFunction.jsx';
-import usePasswordToggle from './PasswordToggle.jsx';
+import { AuthSignUp } from '../../config/Firebase/AuthManager';
+import usePasswordToggle from './PasswordToggle';
 
 function SignUp () {
     const { showPassword1, showPassword2, handleTogglePassword1, handleTogglePassword2 } = usePasswordToggle();

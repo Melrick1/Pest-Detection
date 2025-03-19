@@ -6,7 +6,7 @@ import {
   updateProfile,  
 } from 'firebase/auth';
 import { setDoc, doc } from 'firebase/firestore';
-import { Auth, FS } from './FirebaseAPI.js';
+import { Auth, fireStore } from './FirebaseAPI.js';
 
 {/* SignUp */}
 const AuthSignUp = async (Name, email, password1, setErrorMessage) => {
@@ -19,7 +19,7 @@ const AuthSignUp = async (Name, email, password1, setErrorMessage) => {
       await updateProfile(user, { displayName: Name });
 
       // Update user data in Firestore
-      await setDoc(doc(FS, 'Users', user.uid), {
+      await setDoc(doc(fireStore, 'Users', user.uid), {
           userName: Name,
           email: email,
       });

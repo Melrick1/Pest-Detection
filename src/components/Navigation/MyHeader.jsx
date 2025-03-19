@@ -10,12 +10,12 @@ function MyHeader() {
 
   return (
     <header>
-      <div className="hamburger-list" onClick={burgerClick}>
+      <div className="hamburger-list">
         {!navOpen ? (
-          <i className="bi bi-list"></i>
+          <i className="hamburger-icon bi bi-list" onClick={burgerClick}></i>
         ) : (
           <>
-            <i className="bi bi-chevron-double-left"></i>
+            <i className="hamburger-icon bi bi-chevron-double-left" onClick={burgerClick}></i>
             <MyNavBar/>
           </>
         )}

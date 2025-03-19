@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router'
-import { AuthSignIn } from '../../config/Firebase/AuthFunction.jsx';
-import { useAuth } from '../../contexts/AuthContext.jsx';
-import usePasswordToggle from './PasswordToggle.jsx';
+import { AuthSignIn } from '../../config/Firebase/AuthManager';
+import { useAuth } from '../../contexts/AuthContext';
+import usePasswordToggle from './PasswordToggle';
 import './AuthStyling.css'
 
 function SignIn() {
     const navigate = useNavigate();
-    const { userLoggedIn, currentUser } = useAuth();
+    const { isLoggedIn, currentUser } = useAuth();
     
     //Show password
     const { showPassword1, handleTogglePassword1 } = usePasswordToggle();
@@ -22,7 +22,7 @@ function SignIn() {
     }
 
     useEffect(() => {
-        if ( userLoggedIn == true) {
+        if ( isLoggedIn == true) {
             navigate("/")
         }
     }, []);

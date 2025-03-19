@@ -19,7 +19,7 @@ header{
     align-items: center;
 }
 
-.hamburger-list:hover{
+.hamburger-icon:hover{
     cursor: pointer;
     background-color: #06860A;
 }
@@ -28,7 +28,7 @@ header{
     font-size: 2.5rem;
 }
 
-.hamburger i:hover{
+.hamburger-list i:hover{
     cursor: pointer;
 }
 

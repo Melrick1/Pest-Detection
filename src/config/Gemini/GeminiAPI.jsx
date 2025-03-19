@@ -11,7 +11,7 @@ async function analyzeImage(imageBase64) {
         const promptTemplate = await response.text();
 
         // Replace {image} placeholder in the prompt
-        const prompt = promptTemplate.replace("{image}", "[Image data]"); // Gemini cannot process raw Base64 in text
+        const prompt = promptTemplate
 
         // Send image to Gemini API
         const result = await model.generateContent({
@@ -26,7 +26,8 @@ async function analyzeImage(imageBase64) {
             ],
         });
 
-        return result.response.text();
+        const aiResponse = result.response.text();
+        return aiResponse;
     } catch (error) {
         console.error("Error getting Gemini response:", error);
         return "Gagal mendapatkan hasil analisis.";

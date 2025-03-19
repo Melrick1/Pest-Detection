@@ -4,12 +4,14 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAnaO7gAFhyFW__kS55N9lATuRMVUJrH0s",
   authDomain: "pestdetecto.firebaseapp.com",
+  databaseURL: "https://pestdetecto-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "pestdetecto",
   storageBucket: "pestdetecto.firebasestorage.app",
   messagingSenderId: "637541259245",
@@ -23,6 +25,7 @@ const analytics = getAnalytics(app);
 
 // Initialize Firebase Services
 const Auth = getAuth(app);
-const FS = getFirestore(app);
+const fireStore = getFirestore(app);
+const fireDB = getDatabase(app)
 
-export { Auth, FS };
+export { Auth, fireStore, fireDB };

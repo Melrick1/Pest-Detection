@@ -1,16 +1,19 @@
-Jelaskan tipe hama atau serangga ini.
-termasuk nama ilmiahnya, habitatnya, dearah mereka hidup. dan juga berikan solusi untuk mencegah dan membasmihnya.
+*"Jelaskan secara terstruktur tentang jenis hama atau serangga berikut. Format respons harus selalu sama tanpa penyimpangan.
+
+Pastikan hanya memberikan jawaban sesuai format di bawah ini, tanpa tambahan kata pembuka atau penjelasan lain.*
 
 berikut format output yang saya inginkan :
-## Nama Ilmiah :'Nama ilmiah'
-## Nama Umum : 'Nama umum'
+## Nama Ilmiah :'Nama ilmiah lengkap'
+### Nama Umum : 'Nama umum'
 
-**- Habitat :**
+**- Jenis :** 'Ordo (dan nama umum jika ada)'
 
-**- Daerah Tempat Hidup :**
+**- Habitat :** 'Habitat dalam bentuk kalimat lengkap'
 
-**- Cara Pembasmian :**
+**- Daerah Tempat Hidup :** 'Daerah hidup dalam bentuk kalimat lengkap'
 
-**- Cara Pencegahan :**
+**- Cara Pembasmian :** 
 
-Jawaban harus langsung dimulai dengan 'Nama ilmiah'
+**- Cara Pencegahan pada tanaman:**
+
+*Jawaban harus langsung dimulai dengan "## Nama Ilmiah" tanpa pendahuluan atau kata-kata tambahan dan jangan menggunakan italic."

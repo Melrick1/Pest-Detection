@@ -1,13 +1,13 @@
 import "./Navigation.css"
 import { useState } from 'react';
 import Profile from "./Profile";
-import { AuthSignOut } from "../../config/Firebase/AuthFunction";
+import { AuthSignOut } from "../../config/Firebase/AuthManager";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../contexts/AuthContext";
 
 const MyNavBar = ( {burgerClick} ) => {
   const [activeItem, setActiveItem] = useState('');
-  const { userLoggedIn, currentUser } = useAuth()
+  const { isLoggedIn, currentUser } = useAuth()
   const navigate = useNavigate()
 
   const navigationItems = [
@@ -48,7 +48,7 @@ const MyNavBar = ( {burgerClick} ) => {
 
         <li className="nav-item">
             <div className='nav-link Sign-in' onClick={handleSignOut}>
-              {userLoggedIn ? (
+              {isLoggedIn ? (
                 <>
                   <i className='nav-icon bi bi-box-arrow-left'></i>
                   <span>Keluar</span>

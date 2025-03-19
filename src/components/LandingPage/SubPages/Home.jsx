@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import {useDropzone} from 'react-dropzone'
 import analyzeImage from '../../../config/Gemini/GeminiAPI';
 import { useAuth } from '../../../contexts/AuthContext';
@@ -7,7 +7,7 @@ import '../Stylings/Home.css'
 function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
     const [file, setFile] = useState();
     const [base64Image, setBase64Image] = useState();
-    const { userLoggedIn, currentUser } = useAuth();
+    const { isLoggedIn, currentUser } = useAuth();
 
     // Convert image file to Base64
     function fileToBase64(file) {
@@ -43,6 +43,7 @@ function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
         if (!base64Image) return;
         setAnalysisResult(null);
         setPage("result");
+
         const result = await analyzeImage(base64Image);
         setAnalysisResult(result);
     }
@@ -50,7 +51,7 @@ function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
     return(
         <section className='Home'>
             <div className='home-containers title'>
-                {userLoggedIn ?(
+                {isLoggedIn ?(
                     <h2>Selamat datang, {currentUser.displayName}</h2>
                 ) : (
                     <h2>Selamat datang, anda belum SignIn!</h2>

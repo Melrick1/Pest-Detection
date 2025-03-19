@@ -7,9 +7,6 @@ function Result ({imagePreview, setPage, analysisResult}) {
             <button className="button go-back'" onClick={() => setPage("home")}>
                 Kembali
             </button>
-            <div className='result-containers'>
-                <h1>Title</h1>
-            </div>
             <div className="result-containers image">
                 <div 
                     className='image-container'
