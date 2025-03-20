@@ -3,7 +3,7 @@ import MyHeader from "../Navigation/MyHeader"
 import Home from "./SubPages/Home"
 import Result from "./SubPages/Result"
 import JsonConfig from "../../config/Gemini/JsonConfig";
-import writeData from "../../config/Firebase/DatabaseManager";
+import { writeData } from "../../config/Firebase/DatabaseManager";
 import { useAuth } from "../../contexts/AuthContext";
 
 function Landingpage () {
@@ -12,7 +12,7 @@ function Landingpage () {
     const [analysisResult, setAnalysisResult] = useState(null);
     const [json, setJson] = useState();
     const [hasWritten, setHasWritten] = useState(false);
-    const { isloggedin, currentUser } = useAuth();
+    const { currentUser } = useAuth();
 
     useEffect(() => {
         async function fetchJson() {

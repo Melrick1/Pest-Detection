@@ -7,7 +7,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 const MyNavBar = ( {burgerClick} ) => {
   const [activeItem, setActiveItem] = useState('');
-  const { isLoggedIn, currentUser } = useAuth()
+  const { isLoggedIn } = useAuth()
   const navigate = useNavigate()
 
   const navigationItems = [
