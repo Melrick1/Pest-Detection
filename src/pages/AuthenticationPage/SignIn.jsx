@@ -39,6 +39,7 @@ function SignIn() {
                     <div className="buttons-auth">
                         <button type="submit" className="button">Sign in</button>
                         <Link to="/Sign-up" className="link-button">Sign up</Link>
+                        <Link to="/" className="link-button">Masuk Sebagai Tamu</Link>
                     </div>
                 </form>
             </div>
