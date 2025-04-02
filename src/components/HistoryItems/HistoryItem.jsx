@@ -1,5 +1,4 @@
 
-import './HistoryItem.css'
 function HistoryItem({ historyItem }) {
     return (
         <div className="history-item">

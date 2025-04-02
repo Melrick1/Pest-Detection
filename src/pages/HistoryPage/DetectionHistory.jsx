@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { readData } from "../../config/Firebase/DatabaseManager";
-import MyHeader from "../Navigation/MyHeader";
-import HistoryItem from "./HistoryItem";
+import Layout from "../Layout";
+import HistoryItem from "../../components/HistoryItems/HistoryItem";
 import './HistoryItem.css'
 
 function DetectionHistory() {
@@ -30,11 +30,11 @@ function DetectionHistory() {
     }
 
     fetchHistory();
-  }, [currentUser]); // Add `currentUser` as a dependency
+  }, [currentUser]);
 
   return (
     <>
-      <MyHeader />
+      <Layout pageName={"Riwayat"}/>
       <section className="Home history-list">
         {historyList.map((item) => (
           <HistoryItem key={item.id} historyItem={item} />

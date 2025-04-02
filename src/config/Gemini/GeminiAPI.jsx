@@ -30,7 +30,7 @@ async function analyzeImage(imageBase64) {
         return aiResponse;
     } catch (error) {
         console.error("Error getting Gemini response:", error);
-        return "Gagal mendapatkan hasil analisis.";
+        return "Gagal mendapatkan hasil analisis, mohon coba kembali dalam beberapa saat.";
     }
 }
 

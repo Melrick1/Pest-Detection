@@ -4,7 +4,6 @@ import { onAuthStateChanged } from "firebase/auth";
 
 const AuthContext = createContext();
 
-//Custom Hook
 export function useAuth() {
   return useContext(AuthContext);
 }

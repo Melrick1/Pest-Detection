@@ -1,18 +1,18 @@
-import { ref, get, update } from "firebase/database";
+import { ref, set, get } from "firebase/database";
 import { fireDB } from "./FirebaseAPI";
 
 function writeData (userID, data) {
     const analysisID = crypto.randomUUID(); // Generate a unique ID
-    const reference = ref(fireDB, `users/${userID}/${analysisID}`)
+    const reference = ref(fireDB, `Users/${userID}/${analysisID}`)
 
-    update(reference, data)
+    set(reference, data)
         .then(() => console.log("Tersimpan ke riwayat"))
         .catch((error) => console.error("Upload ke riwayat gagal: ", error));
 }
 
 async function readData(userID) {
     try {
-        const reference = ref(fireDB, `users/${userID}`);
+        const reference = ref(fireDB, `Users/${userID}`);
         const snapshot = await get(reference);
         const data = snapshot.val();
 

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import MyHeader from "../Navigation/MyHeader"
-import Home from "./SubPages/Home"
-import Result from "./SubPages/Result"
-import JsonConfig from "../../config/Gemini/JsonConfig";
 import { writeData } from "../../config/Firebase/DatabaseManager";
 import { useAuth } from "../../contexts/AuthContext";
+import Layout from "../Layout";
+import Home from "./SubPages/Home"
+import Result from "./SubPages/Result"
+import JsonConfig from "../../config/Utilities/JsonConfig";
 
-function Landingpage () {
+function LandingPage () {
     const [page, setPage] = useState("home");
     const [imagePreview, setImagePreview] = useState();
     const [analysisResult, setAnalysisResult] = useState(null);
@@ -30,7 +30,6 @@ function Landingpage () {
         fetchJson()
     }, [analysisResult])
 
-    // Keep seperate so it doesn't duplicate data
     useEffect(() => {
         if (json && !hasWritten) {
             writeData(currentUser.uid, json);
@@ -40,7 +39,7 @@ function Landingpage () {
 
     return (
         <>
-            <MyHeader />
+            <Layout pageName={"Beranda"}/>
             {page === "home" && <Home 
                 setPage={setPage} 
                 imagePreview={imagePreview} 
@@ -56,4 +55,4 @@ function Landingpage () {
     )
 }
 
-export default Landingpage
+export default LandingPage

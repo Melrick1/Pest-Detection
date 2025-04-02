@@ -19,6 +19,7 @@ function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
         });
     }
 
+    //image Dropbox
     const onDrop = useCallback(async (acceptedFiles) => {
         if (acceptedFiles.length > 0) {
             const selectedFile = acceptedFiles[0];
@@ -29,13 +30,15 @@ function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
             setBase64Image(base64Data); // Store Base64 for API request
         }
     }, [])
+    
     const {getRootProps, getInputProps} = useDropzone({onDrop, accept: {'image/*' : []},})
 
     function formatFileSize(size) {
+        //rounderd to 2 decimal places
         if (size >= 1024 * 1024) {
-            return (size / (1024 * 1024)).toFixed(2) + " MB"; // Convert to MB and round to 2 decimal places
+            return (size / (1024 * 1024)).toFixed(2) + " MB";
         } else {
-            return (size / 1024).toFixed(2) + " KB"; // Convert to KB and round to 2 decimal places
+            return (size / 1024).toFixed(2) + " KB";
         }
     }
 
@@ -52,14 +55,14 @@ function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
         <section className='Home'>
             <div className='home-containers title'>
                 {isLoggedIn ?(
-                    <h2>Selamat datang, {currentUser.displayName}</h2>
+                    <h2 className='home-welcome'>Selamat datang, {currentUser.displayName}</h2>
                 ) : (
-                    <h2>Selamat datang, anda belum SignIn!</h2>
+                    <h2 className='home-welcome'>Selamat datang, anda belum SignIn!</h2>
                 )}
                 
                 <h2>Unggah gambar hama atau serangga tanaman anda di sini</h2>
                 <p>
-                    Unggah gambar tanaman Anda untuk membantu sistem mendeteksi jenis hama atau serangga, memahami dampak serangannya, serta memberikan panduan langkah-langkah penanganan yang efektif agar tanaman tetap sehat dan produktif.
+                    Unggah gambar tanaman anda untuk membantu sistem mendeteksi jenis hama atau serangga, memahami dampak serangannya, serta memberikan panduan langkah-langkah penanganan yang efektif agar tanaman tetap sehat dan produktif.
                 </p>
             </div>
             <div className='home-containers image'>

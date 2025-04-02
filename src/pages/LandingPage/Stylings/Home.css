@@ -3,13 +3,17 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5rem;
-    margin-top: 10rem;
+    margin-top: 8rem;
     width: 100vw;
     justify-content: center;
 }
 
 .home-containers{
     max-width: 40rem;
+}
+
+.home-welcome{
+    margin-bottom: 2rem;
 }
 
 .input-container:hover{

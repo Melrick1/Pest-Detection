@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router'
 import { ResetPasswordReq } from '../../config/Firebase/AuthManager';
+import EmailInput from '../../components/Inputs/EmailInput';
 
 function ForgotPass () {
     const [email, setEmail ]= useState('');
@@ -20,19 +21,11 @@ function ForgotPass () {
                 "success auth-message" : "error auth-message"}>&nbsp;{errorMessage}</p>
 
                 <form onSubmit={resetHandler}>
-                    <div className="form-content">
-                        <input
-                            className='inputbox email'
-                            type="email"
-                            placeholder="Alamat Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}>
-                        </input>
-                    </div>
+                    <EmailInput email={email} setEmail={setEmail}/>
 
                     <div className="buttons-forgotpass">
-                        <button type="submit" className="button">Reset Password</button>
                         <Link to='/Sign-in' className="link-button">Kembali</Link>
+                        <button type="submit" className="button">Reset Password</button>
                     </div>
                 </form>
             </div>

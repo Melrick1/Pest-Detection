@@ -24,11 +24,11 @@ header{
     background-color: #06860A;
 }
 
-.hamburger-list i{
+.hamburger-icon{
     font-size: 2.5rem;
 }
 
-.hamburger-list i:hover{
+.hamburger-icon:hover{
     cursor: pointer;
 }
 
@@ -39,9 +39,11 @@ header{
 
 .navbar{
     position: fixed;
+    display: flex;
     top: 0;
     left: 0;
     height: 100%;
+    min-width: 20rem;
     margin-top: 5rem;
     background-color: rgb(12, 78, 18);
     z-index: 10;
@@ -56,11 +58,13 @@ header{
     flex-direction: column;
     align-items: center;
     height: 100%;
+    width: 100%;
 }
 
 .nav-item{
     width: 100%;
     border-bottom: 1px solid black;
+    height: 5rem;
 }
 
 .nav-link {
@@ -74,10 +78,10 @@ header{
 }
 
 .nav-icon{
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-left: 1rem;
-    width: 5rem;
-    min-width: 5rem;
+    width: 3rem;
+    min-width: 3rem;
 }
 
 .navbar span{
@@ -86,7 +90,7 @@ header{
 
 .active{
     color: white;
-    background-color: #075509;
+    background-color: #07740b;
 }
 
 .nav-link:hover{
@@ -94,14 +98,24 @@ header{
 }
 
 .nav-link:not(.active):hover{
-    background-color: #06860A;
+    background-color: #0bca11;
     transition: background-color 200ms linear;
 }
 
-.profileDetails{
+.profile-details{
     display: flex;
     align-items: center;
     height: 7rem;
+    color: white;
+    margin: 0;
+}
+
+.profile-email{
+    font-size: 12px;
+}
+
+.profile-names{
+    margin-left: 1rem;
 }
 
 @keyframes expandNavbar {

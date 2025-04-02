@@ -11,7 +11,7 @@
 }
 
 .auth-container{
-    margin: 7rem auto 0 auto;
+    margin: 5rem auto 0 auto;
     width: 360px;
     height: 420px;
     background-color: #E6E6E6;
@@ -23,6 +23,7 @@
 
 .forgot-container{
     height: 240px;
+    margin-top: 1rem;
 }
 
 .hero h1{
@@ -49,44 +50,13 @@
     text-align: left;
 }
 
-/* Input */
+/* Inputs */
 .form-content{
     display:flex;
     width: 20rem;
     padding: 0;
     margin: 1rem auto 1rem auto;
 }
-
-.auth-container .inputbox{
-    border: 0px;
-    padding: 12px;
-    border-radius: 10px;
-    border: 2px solid black;
-    background-color: #262626;
-}
-
-.auth-container .email{
-    width: 100%;
-}
-
-.auth-container .pass{
-    width: 80%;
-    border-radius: 10px 0px 0px 10px;
-}
-
-/* Password toggle */
-.form-content span{
-    width: 15%;
-    background-color: #4D4D4D;
-    border: 2px solid black;
-    border-radius: 0px 10px 10px 0px;
-}
-
-.form-content i{
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: white;
-} 
 
 /* Button */
 .buttons-auth{

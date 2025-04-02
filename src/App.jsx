@@ -1,21 +1,19 @@
 import { Routes, Route} from "react-router";
-import Landingpage from "./components/LandingPage/Landingpage.jsx";
-import SignIn from './components/Authentication/SignIn.jsx';
-import SignUp from './components/Authentication/SignUp.jsx';
-import ForgotPass from './components/Authentication/ForgotPass.jsx';
-import DetectionHistory from "./components/History/DetectionHistory.jsx";
+import LandingPage from "./pages/LandingPage/Landingpage.jsx";
+import SignIn from './pages/AuthenticationPage/SignIn.jsx';
+import SignUp from './pages/AuthenticationPage/SignUp.jsx';
+import ForgotPass from './pages/AuthenticationPage/ForgotPass.jsx';
+import DetectionHistory from "./pages/HistoryPage/DetectionHistory.jsx";
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Landingpage />} />
-        <Route path="/Sign-in" element={<SignIn />} />
-        <Route path="/Sign-up" element={<SignUp />} />
-        <Route path="/Forgot-Pass" element={<ForgotPass />} />
-        <Route path="/riwayat" element={<DetectionHistory />}/>
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/Sign-in" element={<SignIn />} />
+      <Route path="/Sign-up" element={<SignUp />} />
+      <Route path="/Forgot-Pass" element={<ForgotPass />} />
+      <Route path="/riwayat" element={<DetectionHistory />}/>
+    </Routes>
   )
 }
 

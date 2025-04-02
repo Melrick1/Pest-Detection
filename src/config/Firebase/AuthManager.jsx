@@ -37,7 +37,6 @@ const AuthSignUp = async (Name, email, password1, setErrorMessage) => {
 const AuthSignIn = async (email, password, navigate, setErrorMessage) => {
   try {
     await signInWithEmailAndPassword(Auth, email, password);
-
     navigate('/')
   }
   catch (error) {
