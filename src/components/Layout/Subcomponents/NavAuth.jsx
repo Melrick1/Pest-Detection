@@ -3,8 +3,8 @@ import { AuthSignOut } from "../../../config/Firebase/AuthManager";
 import { useNavigate } from "react-router";
 
 function NavAuth() {
-    const { isLoggedIn } = useAuth
-    const navigate = useNavigate()
+    const { isLoggedIn } = useAuth();
+    const navigate = useNavigate();
 
     const handleSignOut = async () => {
         await AuthSignOut();
