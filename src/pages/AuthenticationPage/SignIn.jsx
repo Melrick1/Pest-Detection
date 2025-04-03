@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router'
-import { AuthSignIn } from '../../config/Firebase/AuthManager';
 import { useAuth } from '../../contexts/AuthContext';
-import EmailInput from '../../components/Inputs/EmailInput';
-import PasswordInput from '../../components/Inputs/PasswordInput';
-import './AuthStyling.css'
+import { AuthSignIn } from '../../config/Firebase/AuthManager';
+import InputText from '../../components/InputText';
+import InputPassword from '../../components/InputPassword';
+import '../Stylings/AuthStyling.css'
 
 function SignIn() {
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ function SignIn() {
 
     const SignInHandler = async (e) => {
         e.preventDefault(); //prevent page reload on form submit
-        AuthSignIn(email, password, navigate, setErrorMessage);
+        await AuthSignIn(email, password, navigate, setErrorMessage);
     }
 
     useEffect(() => {
@@ -32,14 +32,14 @@ function SignIn() {
                 <p className='error auth-message'>&nbsp;{errorMessage}</p>
                 
                 <form onSubmit={SignInHandler}>
-                    <EmailInput email={email} setEmail={setEmail}/>
-                    <PasswordInput password={password} setPassword={setPassword} />
+                    <InputText type={"email"} value={email} setValue={setEmail}/>
+                    <InputPassword password={password} setPassword={setPassword} />
 
-                    <Link to="/Forgot-Pass" className='forgot' >Lupa password?</Link>
+                    <Link to="/Forgot-Pass" className='forgot' >Lupa password? Tekan disini!</Link>
                     <div className="buttons-auth">
                         <button type="submit" className="button">Sign in</button>
-                        <Link to="/Sign-up" className="link-button">Sign up</Link>
                         <Link to="/" className="link-button">Masuk Sebagai Tamu</Link>
+                        <Link to="/Sign-up" className="link-button">Sign up</Link>
                     </div>
                 </form>
             </div>

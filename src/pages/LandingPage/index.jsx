@@ -1,35 +1,40 @@
 import { useEffect, useState } from "react"
-import { writeData } from "../../config/Firebase/DatabaseManager";
 import { useAuth } from "../../contexts/AuthContext";
+import { writeData } from "../../config/Firebase/DatabaseManager";
 import Layout from "../Layout";
 import Home from "./SubPages/Home"
 import Result from "./SubPages/Result"
-import JsonConfig from "../../config/Utilities/JsonConfig";
+import JsonConfig from "../../Utilities/JsonConfig";
 
 function LandingPage () {
-    const [page, setPage] = useState("home");
-    const [imagePreview, setImagePreview] = useState();
-    const [analysisResult, setAnalysisResult] = useState(null);
-    const [json, setJson] = useState();
-    const [hasWritten, setHasWritten] = useState(false);
     const { currentUser } = useAuth();
 
+    const [page, setPage] = useState("home");
+    const [json, setJson] = useState();
+    const [hasWritten, setHasWritten] = useState(false);
+    const [imagePreview, setImagePreview] = useState();
+    const [analysisResult, setAnalysisResult] = useState(null);
+
+    //turn analysisResult into Json format
     useEffect(() => {
-        async function fetchJson() {
+        async function makeJson() {
+            console.log(analysisResult)
+            if (analysisResult == "Gagal mendapatkan hasil analisis, mohon coba kembali dalam beberapa saat.") {
+                return;
+            } 
             if (analysisResult && !currentUser) {
-                console.log(analysisResult)
                 console.log("%cSignIn to save to History!", "font-weight: 900; font-size: 20px;");
                 return;
             }
             if (analysisResult && !json) {
-                console.log(analysisResult)
                 const jsonFormat = await JsonConfig(analysisResult)
                 setJson(jsonFormat);
             }
         }
-        fetchJson()
+        makeJson()
     }, [analysisResult])
 
+    //Add Json to Database
     useEffect(() => {
         if (json && !hasWritten) {
             writeData(currentUser.uid, json);

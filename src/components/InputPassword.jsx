@@ -1,7 +1,6 @@
 import { useState } from "react";
-import PasswordToggle from "./PasswordToggle";
 
-function PasswordInput({ password, setPassword }) {
+function InputPassword({ password, setPassword }) {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleTogglePassword = () => {
@@ -17,9 +16,12 @@ function PasswordInput({ password, setPassword }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}>
             </input>
-            <PasswordToggle isVisible={showPassword} onToggle={handleTogglePassword} />
+            <span>
+                <i className={`bi bi-eye${showPassword ? "-slash" : ""}`}
+                onClick={handleTogglePassword}></i>
+            </span>
         </div>
     )
 }
 
-export default PasswordInput
+export default InputPassword;

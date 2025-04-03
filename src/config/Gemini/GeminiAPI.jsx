@@ -10,16 +10,13 @@ async function analyzeImage(imageBase64) {
         const response = await fetch("/prompt.md");
         const promptTemplate = await response.text();
 
-        // Replace {image} placeholder in the prompt
-        const prompt = promptTemplate
-
         // Send image to Gemini API
         const result = await model.generateContent({
             contents: [
                 {
                     role: "user",
                     parts: [
-                        { text: prompt },
+                        { text: promptTemplate },
                         { inline_data: { mime_type: "image/jpeg", data: imageBase64 } },
                     ],
                 },

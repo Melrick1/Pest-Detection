@@ -5,26 +5,29 @@ import {
   sendPasswordResetEmail, 
   updateProfile,  
 } from 'firebase/auth';
-import { setDoc, doc } from 'firebase/firestore';
-import { Auth, fireStore } from './FirebaseAPI.js';
+import { Auth } from './FirebaseAPI.js';
 
 {/* SignUp */}
-const AuthSignUp = async (Name, email, password1, setErrorMessage) => {
+const AuthSignUp = async (name, email, password1, password2, setErrorMessage) => {
   try {
+      // Check if invalid
+      if (name.trim() === ""){
+        setErrorMessage("Nama pengguna diperlukan")
+        return;
+      }
+      if (password1 !== password2) {
+          setErrorMessage("Password tidak sama");
+          return;
+      }
+
       // Create user with email and password
       const userCredential = await createUserWithEmailAndPassword(Auth, email, password1);
       const user = userCredential.user;
+      await signOut(Auth);
 
       // Set display name in Firebase Auth
-      await updateProfile(user, { displayName: Name });
+      await updateProfile(user, { displayName: name });
 
-      // Update user data in Firestore
-      await setDoc(doc(fireStore, 'Users', user.uid), {
-          userName: Name,
-          email: email,
-      });
-
-      // Registered successfully
       await setErrorMessage("Sign Up Berhasil")
       console.log("Sign Up Berhasil")
   }
@@ -37,7 +40,7 @@ const AuthSignUp = async (Name, email, password1, setErrorMessage) => {
 const AuthSignIn = async (email, password, navigate, setErrorMessage) => {
   try {
     await signInWithEmailAndPassword(Auth, email, password);
-    navigate('/')
+    navigate("/")
   }
   catch (error) {
     ErrorHandler(error, setErrorMessage);
@@ -57,7 +60,7 @@ const AuthSignOut = async () => {
 const ResetPasswordReq = async (email, setErrorMessage) => {
   try {
     await sendPasswordResetEmail(Auth, email)
-    setErrorMessage('Permintahan reset password telah dikirim, cek email anda')
+    setErrorMessage("Permintahan reset password telah dikirim, cek email anda")
   }
   catch (error) {
     ErrorHandler(error, setErrorMessage);

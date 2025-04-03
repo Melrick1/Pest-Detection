@@ -1,3 +1,5 @@
+import './Stylings/MyHeader.css'
+
 function MyHeader({ pageName, navOpen, setNavOpen }) {
   const burgerClick = () => {
     setNavOpen((prev) => !prev);

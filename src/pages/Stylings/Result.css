@@ -2,19 +2,27 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    margin-top: 5rem;
     width: 100vw;
+    margin-top: 5rem;
 }
 
 .result-containers{
     margin: 1rem auto 0rem auto;
 }
 
+.Result .image{
+    display: flex;
+    flex-direction: row;
+}
+
 .go-back{
-    margin: 2rem;
+    position: absolute;
+    left: 0;
+    margin-left: 2rem;
 }
 
 .image-container{
+    margin-top: 2rem;
     border: 3px solid gray;
     border-radius: 1rem;
     width: 480px;

@@ -2,7 +2,7 @@
 import { useNavigate, useLocation } from "react-router";
 
 function NavItem({ item }) {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const location = useLocation();
     const isActive = location.pathname === `/${item.route}`;
 

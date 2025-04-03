@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router'
 import { AuthSignUp } from '../../config/Firebase/AuthManager';
-import EmailInput from '../../components/Inputs/EmailInput';
-import PasswordInput from '../../components/Inputs/PasswordInput';
-import NameInput from '../../components/Inputs/NameInput';
+import InputText from '../../components/InputText';
+import InputPassword from '../../components/InputPassword';
 
 function SignUp () {
-    //Firebase Auth
     const [name, setName] = useState('');
     const [email, setEmail ]= useState('');
     const [password1, setPassword1] = useState('');
@@ -15,18 +13,7 @@ function SignUp () {
 
     const SignUpHandler = async (e) => {
         e.preventDefault(); //stop page from reload on submit
-
-        // Check if invalid
-        if (name.trim() === ""){
-            setErrorMessage("Nama pengguna diperlukan")
-            return;
-        }
-        if (password1 !== password2) {
-            setErrorMessage("Password tidak sama");
-            return;
-        }
-
-        AuthSignUp(name, email, password1, setErrorMessage);
+        AuthSignUp(name, email, password1, password2, setErrorMessage);
     }
 
     return(
@@ -36,10 +23,10 @@ function SignUp () {
                 <p className={errorMessage == "Sign Up Berhasil" ? "success auth-message" : "error auth-message"}>&nbsp;{errorMessage}</p>
                 
                 <form onSubmit={SignUpHandler}>
-                    <NameInput name={name} setName={setName} />
-                    <EmailInput email={email} setEmail={setEmail}/>
-                    <PasswordInput password={password1} setPassword={setPassword1} />
-                    <PasswordInput password={password2} setPassword={setPassword2} />
+                    <InputText type={"text"} value={name} setValue={setName}/>
+                    <InputText type={"email"} value={email} setValue={setEmail}/>
+                    <InputPassword password={password1} setPassword={setPassword1} />
+                    <InputPassword password={password2} setPassword={setPassword2} />
 
                     <Link to="/Sign-in" className='forgot'>Kembali ke login</Link>
                     <div className="buttons-auth">

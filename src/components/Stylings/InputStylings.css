@@ -4,7 +4,7 @@
     background-color: #262626;
 }
 
-.input-container:hover {
+.form-content .input-container:hover {
     cursor: text;
 }
 

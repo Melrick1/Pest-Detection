@@ -5,10 +5,10 @@ Jelaskan secara terstruktur tentang jenis hama atau serangga berikut. Format res
 Pastikan hanya memberikan jawaban sesuai format di bawah ini, tanpa tambahan kata pembuka atau penjelasan lain.*
 
 berikut format output yang saya inginkan :
-## Nama Ilmiah :'Nama ilmiah lengkap'
+## Nama Ilmiah : 'Nama ilmiah spesies'
 ### Nama Umum : 'Nama umum 1 saja'
 
-**- Jenis :** 'Ordo (dan nama umum jika ada)'
+**- Jenis :** 'Ordo'
 
 **- Habitat :** 'Habitat dalam bentuk kalimat lengkap'
 

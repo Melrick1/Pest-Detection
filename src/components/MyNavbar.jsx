@@ -1,7 +1,7 @@
 import Profile from "./Subcomponents/Profile";
 import NavItem from "./Subcomponents/NavItems";
 import NavAuth from './Subcomponents/NavAuth';
-import "./Stylings/Navigation.css"
+import "./Stylings/MyNavbar.css"
 
 const MyNavBar = () => {
   const navigationItems = [

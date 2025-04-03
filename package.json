@@ -13,6 +13,7 @@
     "@google/generative-ai": "^0.21.0",
     "bootstrap-icons": "^1.11.3",
     "firebase": "^11.3.1",
+    "mime-types": "^3.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-dropzone": "^14.3.5",

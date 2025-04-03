@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router"
+import './Stylings/Histories.css'
 
-function HistoryItem({ historyItem }) {
+function Histories({ historyItem }) {
+    const navigate = useNavigate();
+
+    function handleItemClick(){
+        navigate("/hasil-riwayat", { state: { historyItem } });
+    }
+
     return (
-        <div className="history-item">
+        <div className="history-item" onClick={handleItemClick}>
             <div>
                 <h3>Nama Ilmiah : {historyItem.nama_ilmiah}</h3>
                 <h4>Nama Umum : {historyItem.nama_umum}</h4>
@@ -14,4 +22,4 @@ function HistoryItem({ historyItem }) {
     )
 }
 
-export default HistoryItem
+export default Histories

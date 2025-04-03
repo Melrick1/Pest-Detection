@@ -1,0 +1,15 @@
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    padding: 1rem;
+    background-color: rgb(150, 150, 150);
+    border: 1px solid black;
+    border-radius: 16px;
+}
+
+.history-item:hover {
+    cursor: pointer;
+    background-color: rgb(200, 200, 200);
+}

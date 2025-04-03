@@ -1,6 +1,6 @@
 import { useState } from "react"
-import MyHeader from "../components/Layout/MyHeader"
-import MyNavBar from "../components/Layout/MyNavbar"
+import MyHeader from "../../components/MyHeader"
+import MyNavBar from "../../components/MyNavbar";
 
 function Layout( {pageName} ) {
     const [navOpen, setNavOpen] = useState(false);
