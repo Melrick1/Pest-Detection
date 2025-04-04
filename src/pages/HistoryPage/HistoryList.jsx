@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
-import { readData } from "../../config/Firebase/DatabaseManager";
 import { Link, useSearchParams } from "react-router";
 import Layout from "../Layout";
 import Histories from "../../components/Histories";
-import SortData from "../../utilities/SortData";
 import "../Stylings/HistoryList.css"
 import Pagination from "../../components/Paginations";
 
@@ -15,9 +12,10 @@ function HistoryList() {
   const currentPage = Number(searchParams.get("page")) || 1;
   const postsPerPage = 5;
 
-  const lastHistoryIndex = currentPage * postsPerPage
-  const firstHistoryIndex = lastHistoryIndex - postsPerPage
-  const currentHistories = historyList.slice(firstHistoryIndex, lastHistoryIndex)
+  const lastHistoryIndex = currentPage * postsPerPage;
+  const firstHistoryIndex = lastHistoryIndex - postsPerPage;
+  const currentHistories = historyList.slice(firstHistoryIndex, lastHistoryIndex);
+  const lastPage = Math.ceil(historyList.length / postsPerPage);
 
   // Page state
   const NotLoggedIn = (
@@ -40,7 +38,7 @@ function HistoryList() {
       {currentHistories.map((item) => (
         <Histories key={item.id} historyItem={item} />
       ))}
-      <Pagination currentPage={currentPage} setSearchParams={setSearchParams} />
+      <Pagination currentPage={currentPage} setSearchParams={setSearchParams} lastPage={lastPage} />
     </>
   );
   

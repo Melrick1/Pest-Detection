@@ -1,8 +1,8 @@
 import { useNavigate, useLocation } from 'react-router';
 import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import '../../Stylings/Result.css'
-import Layout from '../../Layout';
+import '../Stylings/Result.css'
+import Layout from '../Layout';
 
 function Result () {
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ function Result () {
             <Layout pageName={"Hasil"}/>
             <section className="Result">
                 <div className="result-containers image">
-                    <button className="button go-back">
+                    <button className="button go-back" onClick={() => {navigate(-1)}}>
                         Kembali
                     </button>
                     <div 
