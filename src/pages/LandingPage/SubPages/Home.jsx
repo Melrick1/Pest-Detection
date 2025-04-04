@@ -1,23 +1,54 @@
 import { useState } from 'react';
 import { useAuth } from '../../../contexts/AuthContext';
+import { useNavigate } from 'react-router';
 import analyzeImage from '../../../config/Gemini/GeminiAPI';
 import InputImage from '../../../components/InputImage';
 import '../../Stylings/Home.css'
 
-function Home ({setPage, setImagePreview, imagePreview, setAnalysisResult}) {
+function Home ({ setImagePreview, imagePreview }) {
     const { isLoggedIn, currentUser } = useAuth();
-
     const [file, setFile] = useState();
     const [base64Image, setBase64Image] = useState();
+    const [analysisResult, setAnalysisResult] = useState(null);
+    const [json, setJson] = useState();
+    const [hasWritten, setHasWritten] = useState(false);
+    const navigate = useNavigate();
 
     async function handleDetection() {
         if (!base64Image) return;
-        setAnalysisResult(null);
-        setPage("result");
 
+        setAnalysisResult(null);
         const result = await analyzeImage(base64Image);
         setAnalysisResult(result);
     }
+
+    //turn analysisResult into Json format
+    useEffect(() => {
+        async function makeJson() {
+            console.log(analysisResult)
+            if (analysisResult == "Gagal mendapatkan hasil analisis, mohon coba kembali dalam beberapa saat.") {
+                return;
+            } 
+            if (analysisResult && !currentUser) {
+                console.log("%cSignIn to save to History!", "font-weight: 900; font-size: 20px;");
+                return;
+            }
+            if (analysisResult && !json) {
+                const jsonFormat = await JsonConfig(analysisResult)
+                setJson(jsonFormat);
+                navigate("/hasil", { state: { analysisResult, imagePreview } });
+            }
+        }
+        makeJson()
+    }, [analysisResult])
+
+    //Add Json to Database
+    useEffect(() => {
+        if (json && !hasWritten) {
+            writeData(currentUser.uid, json);
+            setHasWritten(true); // Prevents re-execution
+        }
+    }, [json])
 
     return(
         <section className='Home'>

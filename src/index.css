@@ -77,13 +77,13 @@ a:active{
   box-sizing: border-box;
 }
 
-.button:hover, .link-button:hover{
+.button:hover {
   cursor: pointer;
   text-decoration: none;
   background-color: #29D79D;
 }
 
-.button:active, .link-button:active{
+.button:active {
   text-decoration: none;
   background-color: #087E57;
 }
@@ -96,15 +96,18 @@ a:active{
 }
 
 .link-button{
-  background-color: #737373;
+  background-color: #4D4D4D;
 }
 
 .link-button:hover{
-  background-color: #999999;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #7e7e7e;
 }
 
 .link-button:active{
-  background-color: #4D4D4D;
+  text-decoration: none;
+  background-color: #333333;
 }
 
 .hidden{

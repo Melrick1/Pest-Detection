@@ -5,11 +5,13 @@ import SignUp from './pages/AuthenticationPage/SignUp.jsx';
 import ForgotPass from './pages/AuthenticationPage/ForgotPass.jsx';
 import HistoryList from "./pages/HistoryPage/HistoryList.jsx";
 import HistoryResult from "./pages/HistoryPage/HistoryResult.jsx"
+import Result from "./pages/LandingPage/SubPages/Result.jsx";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/hasil" element={<Result />} />
       <Route path="/Sign-in" element={<SignIn />} />
       <Route path="/Sign-up" element={<SignUp />} />
       <Route path="/Forgot-Pass" element={<ForgotPass />} />

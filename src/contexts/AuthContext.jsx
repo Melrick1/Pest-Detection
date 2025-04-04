@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { Auth } from "../config/Firebase/FirebaseAPI";
 import { onAuthStateChanged } from "firebase/auth";
+import SortData from "../utilities/SortData";
+import { readData } from "../config/Firebase/DatabaseManager";
 
 const AuthContext = createContext();
 
@@ -11,12 +13,29 @@ export function useAuth() {
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [historyList, setHistoryList] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // Detect Auth Changes
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(Auth, initializeUser);
         return unsubscribe;
     }, []);
+
+    // Fetch History
+    useEffect(() => {
+        if (!currentUser) return;
+
+        async function handleData(data) {
+            const sorted = await SortData(data);
+            setHistoryList(sorted);
+        }
+    
+        // Call listener
+        const unsubscribe = readData(currentUser.uid, handleData);
+        // Call Stop listener
+        return unsubscribe;
+    }, [currentUser]);
 
     async function initializeUser(user) {
         if (user) {
@@ -36,7 +55,9 @@ export function AuthProvider({ children }) {
     const value = {
         isLoggedIn,
         currentUser,
-        setCurrentUser
+        setCurrentUser,
+        historyList,
+        setHistoryList
     };
 
     return (

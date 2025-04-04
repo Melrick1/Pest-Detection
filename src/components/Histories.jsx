@@ -11,7 +11,7 @@ function Histories({ historyItem }) {
     return (
         <div className="history-item" onClick={handleItemClick}>
             <div>
-                <h3>Nama Ilmiah : {historyItem.nama_ilmiah}</h3>
+                <h4>Nama Ilmiah : {historyItem.nama_ilmiah}</h4>
                 <h4>Nama Umum : {historyItem.nama_umum}</h4>
             </div>
             <div className="history-date">

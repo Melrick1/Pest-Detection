@@ -1,4 +1,4 @@
-import { ref, set, get } from "firebase/database";
+import { ref, set, onValue, off } from "firebase/database";
 import { fireDB } from "./FirebaseAPI";
 
 function writeData (userID, data) {
@@ -10,26 +10,27 @@ function writeData (userID, data) {
         .catch((error) => console.error("Upload ke riwayat gagal: ", error));
 }
 
-async function readData(userID) {
-    try {
-        const reference = ref(fireDB, `Users/${userID}`);
-        const snapshot = await get(reference);
+function readData(userID, callback) {
+    if (!userID) return;
+  
+    const reference = ref(fireDB, `Users/${userID}`);
+    
+    // Firebase Listener (real-time)
+    onValue(reference, (snapshot) => {
         const data = snapshot.val();
 
-        // Convert JSON object to an array
         const dataArray = data
             ? Object.entries(data).map(([key, value]) => ({
                 id: key,
                 ...value,
             }))
-        : [];
+            : [];
 
-        console.log("Data received:", dataArray);
-        return dataArray;
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        return [];
-    }
+        callback(dataArray);
+     });
+
+    // Stop listener
+    return () => off(reference);
 }
 
 export { writeData, readData }

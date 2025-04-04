@@ -9,7 +9,7 @@ function HistoryResult() {
   const { historyItem } = location.state || {};
 
   if (!historyItem) {
-    navigate("/")
+    navigate("/riwayat")
   }
 
   return (

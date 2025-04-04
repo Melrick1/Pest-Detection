@@ -1,9 +1,9 @@
 import Profile from "./Subcomponents/Profile";
-import NavItem from "./Subcomponents/NavItems";
+import NavItem from "./Subcomponents/NavItem";
 import NavAuth from './Subcomponents/NavAuth';
 import "./Stylings/MyNavbar.css"
 
-const MyNavBar = () => {
+const MyNavBar = ({ navOpen }) => {
   const navigationItems = [
     { id : '1', route: '', icon: 'bi bi-house', label: 'Beranda' },
     { id : '2', route: 'riwayat', icon: 'bi bi-clock-history', label: 'Riwayat' },
@@ -12,7 +12,7 @@ const MyNavBar = () => {
   ];
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${navOpen ? 'navOpen' : 'navClosed'}`}>
       <ul className="nav-list">
         <Profile/>
         {navigationItems.map((item) => (

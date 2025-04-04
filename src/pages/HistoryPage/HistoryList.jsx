@@ -1,54 +1,56 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { readData } from "../../config/Firebase/DatabaseManager";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import Layout from "../Layout";
 import Histories from "../../components/Histories";
-import SortData from "../../Utilities/SortData";
+import SortData from "../../utilities/SortData";
 import "../Stylings/HistoryList.css"
+import Pagination from "../../components/Paginations";
 
 function HistoryList() {
-  const [historyList, setHistoryList] = useState([]);
-  const { currentUser, isLoggedIn } = useAuth();
+  const { historyList, isLoggedIn } = useAuth();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // Fetch History
-  useEffect(() => {
-    async function FetchHistory () {
-      if (!currentUser) return;
-      
-      try {
-        const data = await readData(currentUser.uid);
-        const sortedData = await SortData(data)
-        setHistoryList(sortedData);
-      } catch (error) {
-        console.error("Error fetching history:", error);
-      }
-    }
-    FetchHistory()
-  }, [currentUser]);
+  const currentPage = Number(searchParams.get("page")) || 1;
+  const postsPerPage = 5;
 
+  const lastHistoryIndex = currentPage * postsPerPage
+  const firstHistoryIndex = lastHistoryIndex - postsPerPage
+  const currentHistories = historyList.slice(firstHistoryIndex, lastHistoryIndex)
+
+  // Page state
+  const NotLoggedIn = (
+    <>
+      <h2>Anda belum Sign-In!</h2>
+      <h3>Anda belum bisa melihat riwayat sebelum Sign-In</h3>
+      <Link to="/Sign-in" className="button">Sign in</Link>
+    </>
+  );
+
+  const NoHistory = (
+    <>
+      <h2>Anda belum ada riwayat</h2>
+      <h3>Silahkan melakukan deteksi di halaman beranda</h3>
+    </>
+  );
+
+  const HistoryContent = (
+    <>
+      {currentHistories.map((item) => (
+        <Histories key={item.id} historyItem={item} />
+      ))}
+      <Pagination currentPage={currentPage} setSearchParams={setSearchParams} />
+    </>
+  );
+  
   return (
     <>
       <Layout pageName={"Riwayat"}/>
       <section className="History-list">
-        {isLoggedIn ? (
-          historyList.length === 0 ? (
-            <>
-              <h2>Anda belum ada riwayat</h2>
-              <h3>Silahkan melakukan deteksi di halaman beranda</h3>
-            </>
-          ) : (
-            historyList.map((item) => (
-              <Histories key={item.id} historyItem={item} />
-            ))
-          )
-        ):(
-          <>
-            <h2>Anda belum Sign-In!</h2>
-            <h3>Anda belum bisa melihat riwayat sebelum Sign-In</h3>
-            <Link to="/Sign-in" className="button">Sign in</Link>
-          </>
-        )}
+        {!isLoggedIn ? NotLoggedIn : 
+        historyList.length === 0 ? NoHistory : 
+        HistoryContent}
       </section>
     </>
   );

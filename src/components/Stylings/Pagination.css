@@ -1,0 +1,10 @@
+.paging-button {
+    text-decoration: none;
+    box-sizing: border-box;
+    height: 2rem;
+    width: 5rem;
+}
+
+.paging-button:hover {
+    cursor: pointer;
+}

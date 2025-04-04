@@ -8,7 +8,7 @@ function Layout( {pageName} ) {
     return (
         <div className="Layout">
             <MyHeader pageName={pageName} navOpen={navOpen} setNavOpen={setNavOpen} />
-            {navOpen && <MyNavBar />}
+            <MyNavBar navOpen={navOpen} />
         </div>
     )
 }
