@@ -6,7 +6,7 @@ function InputEmail({ email, setEmail }) {
         <input
             className='input-container text'
             type={'email'}
-            placeholder="Nama pengguna"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}>
         </input>
