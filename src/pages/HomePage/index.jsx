@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router';
-import analyzeImage from '../../config/Gemini/GeminiAPI';
+import { writeData } from '../../utilities/DatabaseManager';
+import analyzeImage from '../../config/GeminiAPI';
 import InputImage from "../../components/InputImage"
 import JsonConfig from "../../utilities/JsonConfig"
 import Layout from '../Layout';
-import { writeData } from '../../config/Firebase/DatabaseManager';
 import '../Stylings/Home.css'
 
 function Home () {

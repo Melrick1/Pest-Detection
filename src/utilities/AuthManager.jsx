@@ -5,7 +5,7 @@ import {
   sendPasswordResetEmail, 
   updateProfile,  
 } from 'firebase/auth';
-import { Auth } from './FirebaseAPI.js';
+import { Auth } from '../config/FirebaseAPI';
 
 {/* SignUp */}
 const AuthSignUp = async (name, email, password1, password2, setErrorMessage) => {

@@ -1,5 +1,5 @@
 import { ref, set, onValue, off } from "firebase/database";
-import { fireDB } from "./FirebaseAPI";
+import { fireDB } from "../config/FirebaseAPI";
 
 function writeData (userID, data) {
     const analysisID = crypto.randomUUID(); // Generate a unique ID

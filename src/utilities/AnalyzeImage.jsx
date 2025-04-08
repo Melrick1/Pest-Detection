@@ -1,10 +1,6 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import model from "../config/GeminiAPI";
 
-const apiKey = "AIzaSyCjblKJcOl2b0RzM-iBQdiI5ZL6SYuUtsY";
-const genAI = new GoogleGenerativeAI(apiKey);
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-
-async function analyzeImage(imageBase64) {
+async function AnalyzeImage(imageBase64) {
     try {
         // Fetch the prompt template from public/prompt.md
         const response = await fetch("/prompt.md");
@@ -31,4 +27,4 @@ async function analyzeImage(imageBase64) {
     }
 }
 
-export default analyzeImage;
+export default AnalyzeImage

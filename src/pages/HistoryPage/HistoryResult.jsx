@@ -16,7 +16,10 @@ function HistoryResult() {
     <>
       <Layout pageName={historyItem.nama_ilmiah}/>
       <section className="Result">
-        <div className='result-containers pest-description'>
+        <button className="button go-back" onClick={() => {navigate(-1)}}>
+            Kembali
+        </button>
+        <div className='result-containers pest-description history-result'>
           <ReactMarkdown>{historyItem.fullText}</ReactMarkdown>
         </div>
       </section>

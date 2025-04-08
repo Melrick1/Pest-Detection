@@ -1,5 +1,5 @@
 import { useAuth } from "../../contexts/AuthContext";
-import { AuthSignOut } from "../../config/Firebase/AuthManager";
+import { AuthSignOut } from "../../utilities/AuthManager";
 import { useNavigate } from "react-router";
 
 function NavAuth() {

@@ -5,7 +5,7 @@ async function JsonConfig(aiResponse) {
 
     // Extract "Nama Umum"
     const namaUmumMatch = aiResponse.match(/###\s*Nama Umum\s*:\s*([^\n]+)/);
-    const namaUmum = namaUmumMatch ? namaUmumMatch[1].split(',').map(name => name.trim()) : [];
+    const namaUmum = namaUmumMatch ? namaUmumMatch[1].trim() : null;
 
     // Extract "Jenis"
     const jenisMatch = aiResponse.match(/\*\*- Jenis\s*:\*\*\s*([^\n]+)/);
@@ -18,8 +18,8 @@ async function JsonConfig(aiResponse) {
         nama_ilmiah: namaIlmiah,
         nama_umum: namaUmum,
         jenis: jenis,
-        date : dateAndTime.date,
-        time : dateAndTime.time,
+        date: dateAndTime.date,
+        time: dateAndTime.time,
         fullText : aiResponse,
     };
 }

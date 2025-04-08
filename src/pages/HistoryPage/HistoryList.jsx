@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useSearchParams } from "react-router";
 import Layout from "../Layout";
 import Histories from "../../components/Histories";
-import "../Stylings/HistoryList.css"
 import Pagination from "../../components/Paginations";
+import "../Stylings/HistoryList.css"
 
 function HistoryList() {
   const { historyList, isLoggedIn } = useAuth();
@@ -16,6 +17,10 @@ function HistoryList() {
   const firstHistoryIndex = lastHistoryIndex - postsPerPage;
   const currentHistories = historyList.slice(firstHistoryIndex, lastHistoryIndex);
   const lastPage = Math.ceil(historyList.length / postsPerPage);
+
+  useEffect(() => {
+    console.log(historyList)
+  },[historyList])
 
   // Page state
   const NotLoggedIn = (

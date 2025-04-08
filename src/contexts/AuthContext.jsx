@@ -1,8 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { Auth } from "../config/Firebase/FirebaseAPI";
 import { onAuthStateChanged } from "firebase/auth";
+import { Auth } from "../config/FirebaseAPI";
+import { readData } from "../utilities/DatabaseManager";
 import SortData from "../utilities/SortData";
-import { readData } from "../config/Firebase/DatabaseManager";
 
 const AuthContext = createContext();
 
@@ -25,11 +25,6 @@ export function AuthProvider({ children }) {
     // Fetch History
     useEffect(() => {
         if (!currentUser) return;
-
-        async function handleData(data) {
-            const sorted = await SortData(data);
-            setHistoryList(sorted);
-        }
     
         // Call listener
         const unsubscribe = readData(currentUser.uid, handleData);
@@ -50,6 +45,11 @@ export function AuthProvider({ children }) {
         }
 
         setLoading(false);
+    }
+
+    async function handleData(data) {
+        const sorted = await SortData(data);
+        setHistoryList(sorted);
     }
 
     const value = {

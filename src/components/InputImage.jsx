@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import { fileToBase64, formatFileSize } from "../utilities/fileConfig";
+import { fileToBase64, formatFileSize } from "../utilities/FileConfig";
 
 function InputImage({ file, setFile, imagePreview, setImagePreview, setBase64Image }) {
     //image Dropbox

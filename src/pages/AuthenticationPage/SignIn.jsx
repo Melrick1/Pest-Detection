@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router'
 import { useAuth } from '../../contexts/AuthContext';
-import { AuthSignIn } from '../../config/Firebase/AuthManager';
-import InputText from '../../components/InputText';
+import { AuthSignIn } from '../../utilities/AuthManager';
+import InputEmail from '../../components/InputEmail';
 import InputPassword from '../../components/InputPassword';
 import '../Stylings/AuthStyling.css'
 
@@ -32,7 +32,7 @@ function SignIn() {
                 <p className='error auth-message'>&nbsp;{errorMessage}</p>
                 
                 <form onSubmit={SignInHandler}>
-                    <InputText type={"email"} value={email} setValue={setEmail}/>
+                    <InputEmail email={email} setEmail={setEmail}/>
                     <InputPassword password={password} setPassword={setPassword} />
 
                     <Link to="/Forgot-Pass" className='forgot' >Lupa password? Tekan disini!</Link>

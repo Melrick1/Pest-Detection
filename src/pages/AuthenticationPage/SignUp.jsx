@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router'
-import { AuthSignUp } from '../../config/Firebase/AuthManager';
+import { AuthSignUp } from '../../utilities/AuthManager';
 import InputText from '../../components/InputText';
 import InputPassword from '../../components/InputPassword';
+import InputEmail from '../../components/InputEmail';
 
 function SignUp () {
     const [name, setName] = useState('');
@@ -23,8 +24,8 @@ function SignUp () {
                 <p className={errorMessage == "Sign Up Berhasil" ? "success auth-message" : "error auth-message"}>&nbsp;{errorMessage}</p>
                 
                 <form onSubmit={SignUpHandler}>
-                    <InputText type={"text"} value={name} setValue={setName}/>
-                    <InputText type={"email"} value={email} setValue={setEmail}/>
+                    <InputText name={name} setName={setName}/>
+                    <InputEmail email={email} setEmail={setEmail}/>
                     <InputPassword password={password1} setPassword={setPassword1} />
                     <InputPassword password={password2} setPassword={setPassword2} />
 
