@@ -52,8 +52,7 @@ function Home () {
     }, [json])
 
     return(
-        <>
-            <Layout />
+        <Layout pageName={"Beranda"}>
             <section className='Home'>
                 <div className='home-containers title'>
                     {isLoggedIn ?(
@@ -83,7 +82,7 @@ function Home () {
                     </div>
                 </div>
             </section>
-        </>
+        </Layout>
     )
 };
 

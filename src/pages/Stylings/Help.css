@@ -1,0 +1,47 @@
+.Help{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+  
+.step {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 0.5rem;
+    align-items: center;
+}
+
+.step-text {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+  
+.step-image {
+    width: 200px;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: contain;
+}
+  
+.note {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 0.5rem;
+}
+  
+.help-footer {
+    background-color: #4b7862;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+  

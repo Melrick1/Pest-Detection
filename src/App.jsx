@@ -6,6 +6,8 @@ import SignUp from './pages/AuthenticationPage/SignUp.jsx';
 import ForgotPass from './pages/AuthenticationPage/ForgotPass.jsx';
 import HistoryList from "./pages/HistoryPage/HistoryList.jsx";
 import HistoryResult from "./pages/HistoryPage/HistoryResult.jsx"
+import AboutPage from "./pages/AboutPage/index.jsx";
+import HelpPage from "./pages/HelpPage/index.jsx";
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
       <Route path="/Sign-up" element={<SignUp />} />
       <Route path="/Forgot-Pass" element={<ForgotPass />} />
       <Route path="/riwayat" element={<HistoryList />}/>
-      <Route path="/hasil-riwayat" element={<HistoryResult />}/>
+      <Route path="/hasil-riwayat" element={<HistoryResult />} />
+      <Route path="/tentang" element={<AboutPage />} />
+      <Route path="/bantuan" element={<HelpPage />} />
     </Routes>
   )
 }

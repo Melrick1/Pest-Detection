@@ -48,14 +48,13 @@ function HistoryList() {
   );
   
   return (
-    <>
-      <Layout pageName={"Riwayat"}/>
-      <section className="History-list">
-        {!isLoggedIn ? NotLoggedIn : 
-        historyList.length === 0 ? NoHistory : 
-        HistoryContent}
-      </section>
-    </>
+      <Layout pageName={"Riwayat"}>
+        <section className="History-list">
+          {!isLoggedIn ? NotLoggedIn : 
+          historyList.length === 0 ? NoHistory : 
+          HistoryContent}
+        </section>
+      </Layout>
   );
 }
 

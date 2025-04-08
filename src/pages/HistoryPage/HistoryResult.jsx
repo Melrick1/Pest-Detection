@@ -14,15 +14,16 @@ function HistoryResult() {
 
   return (
     <>
-      <Layout pageName={historyItem.nama_ilmiah}/>
-      <section className="Result">
-        <button className="button go-back" onClick={() => {navigate(-1)}}>
-            Kembali
-        </button>
-        <div className='result-containers pest-description history-result'>
-          <ReactMarkdown>{historyItem.fullText}</ReactMarkdown>
-        </div>
-      </section>
+      <Layout pageName={historyItem.nama_ilmiah}>
+        <section className="Result">
+          <button className="button go-back" onClick={() => {navigate(-1)}}>
+              Kembali
+          </button>
+          <div className='result-containers pest-description history-result'>
+            <ReactMarkdown>{historyItem.fullText}</ReactMarkdown>
+          </div>
+        </section>
+      </Layout>
     </>
   );
 }
