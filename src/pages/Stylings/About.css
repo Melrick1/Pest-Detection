@@ -4,53 +4,51 @@
     gap: 1rem;
 }
 
-/* Image Gallery */
 .gallery {
+    overflow: hidden;
+    width: 100vw;
+}
+  
+.gallery-track {
     display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    width: 100%;
+    width: 100%; /* allow full width of all images */
+    animation: scroll-left 25s linear infinite;
 }
   
 @keyframes scroll-left {
     0% {
-      transform: translateX(0);
+      transform: translateX(0%);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-100%);
     }
-}
-  
-.gallery::-webkit-scrollbar {
-    display: none;
 }
   
 .gallery-card {
-    background-color: white;
+    width: 20%;
+    height: 200px;
     border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    flex: 0 0 auto;
-    animation: scroll-left 20s linear infinite;
+    flex-shrink: 0;
 }
-  
+
 .gallery-image {
-    width: 200px;
+    width: 95%;
     height: 200px;
     object-fit: cover;
     border-radius: 0.5rem;
+    flex-shrink: 0;
 }
   
 /* About Us Text */
 .about-container {
     display: flex;
-    width: 100vw;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }
 
 .about-text {
-    width: 90%;
+    width: 90vw;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -58,11 +56,13 @@
 }
 
 .about-text p {
-    margin-left: 1rem;
+    margin: 0 1.5rem;
+    text-align: justify;
 }
 
 .contact-us {
-    width: 100%;
+    width: 90vw;
+    padding: 2rem;
     padding-left: 3rem;
     margin-bottom: 2rem;
 }
@@ -71,5 +71,9 @@
     margin: 1rem 0 0 2rem;
     display: flex;
     gap: 3rem;
+}
+
+.contact-info i{
+    font-size: 20px;
 }
   

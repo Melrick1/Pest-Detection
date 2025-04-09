@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router';
 import { writeData } from '../../utilities/DatabaseManager';
-import analyzeImage from '../../config/GeminiAPI';
+import AnalyzeImage from '../../utilities/AnalyzeImage';
 import InputImage from "../../components/InputImage";
 import JsonConfig from "../../utilities/JsonConfig";
 import Layout from '../Layout';
 import '../Stylings/Home.css';
+import { image } from 'motion/react-m';
 
 function Home () {
     const { isLoggedIn, currentUser } = useAuth();
@@ -15,7 +16,7 @@ function Home () {
     const [analysisResult, setAnalysisResult] = useState(null);
     const [json, setJson] = useState();
     const [hasWritten, setHasWritten] = useState(false);
-    const [imagePreview, setImagePreview] = useState()
+    const [imagePreview, setImagePreview] = useState("/images/Placeholder.png")
     const navigate = useNavigate();
 
     async function makeJson(result) {
@@ -32,7 +33,7 @@ function Home () {
         if (!base64Image) return;
 
         setAnalysisResult(null);
-        const result = await analyzeImage(base64Image);
+        const result = await AnalyzeImage(base64Image);
         setAnalysisResult(result);
         await makeJson(result)
     }
@@ -76,7 +77,7 @@ function Home () {
                     />
 
                     <div className='deteksi'>
-                        <button className="button" onClick={handleDetection} disabled={!imagePreview} >
+                        <button className="button" onClick={handleDetection} disabled={imagePreview == "/images/Placeholder.png" } >
                             Deteksi Hama
                         </button>
                     </div>

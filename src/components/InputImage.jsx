@@ -25,7 +25,7 @@ function InputImage({ file, setFile, imagePreview, setImagePreview, setBase64Ima
                 style={{ backgroundImage: imagePreview ? `url(${imagePreview})` : "none"}}
                 {...getRootProps()}
             >
-
+                
                 <input {...getInputProps()}/>
             </div>
 

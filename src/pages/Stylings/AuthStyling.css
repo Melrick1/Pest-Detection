@@ -1,7 +1,6 @@
-.hero{
+.hero {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 0;
     padding: 0;
     /* background-color: #5E9387; */
@@ -10,8 +9,12 @@
     height: 100%;
 }
 
-.auth-container{
-    margin: 5rem auto 0 auto;
+.reset-section {
+    justify-content: flex-start;
+}
+
+.auth-container {
+    margin: 0rem auto 0 auto;
     width: 360px;
     height: 420px;
     background-color: #E6E6E6;
@@ -21,37 +24,37 @@
     text-align: center;
 }
 
-.forgot-container{
+.forgot-container {
     height: 240px;
     margin-top: 1rem;
 }
 
-.hero h1{
+.hero h1 {
     color: white;
-    margin-top: 3rem;
     text-align: center;
+    margin-top: 3rem;
 }
 
-.auth-container .auth-message{
+.auth-container .auth-message {
     margin: 0rem auto 0 auto;
 }
 
-.auth-container .success{
+.auth-container .success {
     color: #00BF07;
     font-weight: bold;
 }
 
-.auth-container .error{
+.auth-container .error {
     color: #BE0000;
     font-weight: bold;
 }
 
-.auth-container label{
+.auth-container label {
     text-align: left;
 }
 
 /* Inputs */
-.form-content{
+.form-content {
     display:flex;
     width: 20rem;
     padding: 0;
@@ -59,7 +62,7 @@
 }
 
 /* Button */
-.buttons-auth{
+.buttons-auth {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,21 +71,21 @@
     margin-top: 1rem;
 }
 
-.buttons-forgotpass{
+.buttons-forgotpass {
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
 
-.buttons-auth *{
+.buttons-auth * {
     width: 20rem;
 }
 
 /* link */
-.auth-container .forgot{
+.auth-container .forgot {
     margin: 1rem 0 1rem 0;
 }
 
-.register-container a{
+.register-container a {
     margin: 1rem;
 }

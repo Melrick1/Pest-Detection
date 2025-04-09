@@ -5,11 +5,11 @@ function HelpPage() {
   return (
     <Layout pageName={"Bantuan"}>
         <section className="Help">
-            <h3>Cara Penggunaan Website Deteksi Hama dan Serangga</h3>
+            <h2>Cara Penggunaan Website Deteksi Hama dan Serangga</h2>
 
             {/* Step 1 */}
             <section className="step alt">
-            <img src="/images/step1.png" alt="Step 1" className="step-image" />
+            <img src="/images/pages/SignIn.png" alt="Step 1" className="step-image" />
             <div className="step-text">
                 <h3>1. Melakukan Pendaftaran</h3>
                 <p>Lakukan pendaftaran akun dengan menggunakan nama, email dan password.</p>
@@ -21,7 +21,7 @@ function HelpPage() {
 
             {/* Step 2 */}
             <section className="step">
-            <img src="/images/step2.png" alt="Step 2" className="step-image" />
+            <img src="/images/pages/SignUp.png" alt="Step 2" className="step-image" />
             <div className="step-text">
                 <h3>2. Masuk ke Akun</h3>
                 <p>Lakukan Sign In menggunakan email dan password yang telah Anda daftarkan sebelumnya.</p>
@@ -33,7 +33,7 @@ function HelpPage() {
 
             {/* Step 3 */}
             <section className="step alt">
-            <img src="/images/step3.png" alt="Step 3" className="step-image" />
+            <img src="/images/pages/SelectFile.png" alt="Step 3" className="step-image" />
             <div className="step-text">
                 <h3>3. Memilih Gambar dari Perangkat</h3>
                 <p>
@@ -42,13 +42,15 @@ function HelpPage() {
                 <p>
                 Setelah itu silahkan memilih gambar tanaman yang telah tercemar hama atau serangga yang ingin Anda deteksi dari perangkat Anda.
                 </p>
-                <p className="note">Note: - Pastikan gambar jelas agar sistem AI dapat menganalisis dengan akurat.</p>
+                <p className="note">
+                Catatan: - Pastikan gambar jelas agar sistem AI dapat menganalisis dengan akurat.
+                </p>
             </div>
             </section>
 
             {/* Step 4 */}
             <section className="step">
-            <img src="/images/step4.png" alt="Step 4" className="step-image" />
+            <img src="/images/pages/Selected.png" alt="Step 4" className="step-image" />
             <div className="step-text">
                 <h3>4. Memulai Deteksi</h3>
                 <p>
@@ -62,7 +64,7 @@ function HelpPage() {
 
             {/* Step 5 */}
             <section className="step alt">
-            <img src="/images/step5.png" alt="Step 5" className="step-image" />
+            <img src="/images/pages/Result.png" alt="Step 5" className="step-image" />
             <div className="step-text">
                 <h3>5. Lihat Hasil Deteksi</h3>
                 <p>
@@ -76,11 +78,25 @@ function HelpPage() {
 
             {/* Step 6 */}
             <section className="step">
-            <img src="/images/step6.png" alt="Step 6" className="step-image" />
+            <img src="/images/pages/Navigation.png" alt="Step 6" className="step-image" />
             <div className="step-text">
-                <h3>6. Akses Riwayat Deteksi</h3>
+                <h3>6. Memindah Halaman </h3>
                 <p>
-                Untuk melihat kembali hasil deteksi sebelumnya, pilih menu “Riwayat” di sidebar.
+                Untuk pindah halaman dalam sistem, perlu diakses melaului menu navigasi.
+                </p>
+                <p>
+                Untuk membuka/menutup menu navigasi, perlu menekan tombol menu di pojok atas kiri.
+                </p>
+            </div>
+            </section>
+
+            {/* Step 7 */}
+            <section className="step alt">
+            <img src="/images/pages/History.png" alt="Step 6" className="step-image" />
+            <div className="step-text">
+                <h3>7. Mengakses Riwayat Deteksi</h3>
+                <p>
+                Untuk melihat kembali hasil deteksi sebelumnya, pilih menu “Riwayat” di menu navigasi.
                 </p>
                 <p>
                 Fitur ini memungkinkan Anda untuk melihat setiap deteksi yang telah Anda lakukan.

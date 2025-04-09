@@ -19,8 +19,7 @@ function Result () {
     }, [analysisResult])
 
     return(
-        <>
-            <Layout pageName={"Hasil"}/>
+        <Layout pageName={"Hasil"}>
             <section className="Result">
                 <div className="result-containers image">
                     <button className="button go-back" onClick={() => {navigate(-1)}}>
@@ -35,7 +34,7 @@ function Result () {
                     <ReactMarkdown>{analysisResult}</ReactMarkdown>
                 </div>
             </section>
-        </>
+        </Layout>
     )
 };
 

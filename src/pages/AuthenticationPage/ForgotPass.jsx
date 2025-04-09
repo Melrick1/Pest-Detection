@@ -14,7 +14,7 @@ function ForgotPass () {
     }
     
     return(
-        <section className='hero'>
+        <section className='hero reset-section'>
             <h1>Reset <br/>Password</h1>
             <div className='auth-container forgot-container'>
                 <h3>Masukkan Email anda :</h3>

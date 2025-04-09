@@ -24,7 +24,7 @@ function AboutPage() {
                 <p className="paragraph">
                     Kami berharap inovasi ini dapat memberikan manfaat bagi para petani dan masyarakat luas dalam meningkatkan produktivitas pertanian. Jika Anda memiliki pertanyaan atau masukan, jangan ragu untuk menghubungi kami!
                 </p>
-                <p className="closing">Terima kasih telah menggunakan layanan kami. 🌱🚀</p>
+                <p className="closing">Terima kasih telah menggunakan layanan kami.</p>
             </div>
         </div>
 
@@ -33,11 +33,11 @@ function AboutPage() {
             <div className="contact-container">
                 <div className="contact-info">
                     <h4>Hendy</h4>
-                    <p>📧 Email: s22110058@student.unklab.ac.id</p>
+                    <i className="bi bi-envelope"></i><span> Email: s22110058@student.unklab.ac.id</span>
                 </div>
                 <div className="contact-info">
                     <h4>Mitch</h4>
-                    <p>📧 Email: s22110054s@student.unklab.ac.id</p>
+                    <i className="bi bi-envelope"></i><span> Email: s22110054s@student.unklab.ac.id</span>
                 </div>
             </div>
         </div>
