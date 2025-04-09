@@ -3,10 +3,10 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router';
 import { writeData } from '../../utilities/DatabaseManager';
 import analyzeImage from '../../config/GeminiAPI';
-import InputImage from "../../components/InputImage"
-import JsonConfig from "../../utilities/JsonConfig"
+import InputImage from "../../components/InputImage";
+import JsonConfig from "../../utilities/JsonConfig";
 import Layout from '../Layout';
-import '../Stylings/Home.css'
+import '../Stylings/Home.css';
 
 function Home () {
     const { isLoggedIn, currentUser } = useAuth();
