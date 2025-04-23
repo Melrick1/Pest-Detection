@@ -15,24 +15,17 @@
 
 .Result .image{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 100%;
 }
 
 .go-back{
-    position: absolute;
-    left: 0;
     margin-left: 2rem;
+    left: 0;
 }
 
-.image-container{
-    margin-top: 2rem;
-    border: 3px solid gray;
-    border-radius: 1rem;
+.result-image{
     width: 480px;
-    aspect-ratio: 16 / 9;
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .pest-description{
@@ -54,3 +47,23 @@
     max-width: 100%; /* Prevents it from exceeding the container */
 }
 
+/* Min Tablet screens */
+@media only screen and (max-width: 768px){
+    .result-image{
+        width: 360px;
+    }
+}
+
+/* Phone screens */
+@media only screen and (max-width: 480px){
+    .go-back{
+        margin-left: 1rem;
+    }
+    .result-image{
+        width: 260px;
+    }
+    
+    .pest-description{
+        width: 95%;
+    }
+}

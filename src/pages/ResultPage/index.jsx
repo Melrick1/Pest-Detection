@@ -1,8 +1,8 @@
 import { useNavigate, useLocation } from 'react-router';
 import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import '../Stylings/Result.css'
 import Layout from '../Layout';
+import '../Stylings/Result.css'
 
 function Result () {
     const navigate = useNavigate();
@@ -26,7 +26,7 @@ function Result () {
                         Kembali
                     </button>
                     <div 
-                        className='image-container'
+                        className='image-container result-image'
                         style={{ backgroundImage: `url(${imagePreview})` }}
                     />
                 </div>

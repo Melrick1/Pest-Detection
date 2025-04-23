@@ -1,3 +1,5 @@
+import "./Stylings/Gallery.css"
+
 function AboutGallery() {
   const images = [
     "/images/Tomohon1.png",

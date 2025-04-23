@@ -1,3 +1,4 @@
+import "./Stylings/MyFooter.css"
 
 function MyFooter() {
   return (

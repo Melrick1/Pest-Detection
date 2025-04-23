@@ -27,6 +27,7 @@ main {
   min-height: calc(100vh - 8rem);
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-width: 100vw;
   margin-top: 5rem !important;
 }
@@ -48,15 +49,15 @@ body *{
 }
 
 h1 {
-  font-size : 40px;
+  font-size : 42px;
 }
 
 h2{
-  font-size: 32px;
+  font-size: 34px;
 }
 
 h3{
-  font-size: 24px;
+  font-size: 26px;
 }
 
 p{
@@ -131,15 +132,6 @@ a:active{
   visibility: hidden;
 }
 
-footer{
-  height: 2rem;
-  background-color: rgb(12, 78, 18);
-  width: 100%;
-  text-align: center;
-  padding: 0.5rem 0;
-  color: white;
-}
-
 .Layout{
   min-width: 100vw ;
 }
@@ -148,5 +140,28 @@ footer{
   :root {
     color: #213547;
     background-color: #ffffff;
+  }
+}
+
+/* Tablet screens */
+@media only screen and (max-width: 1024px){
+  h1 {
+    font-size : 34px;
+  }
+  
+  h2{
+    font-size: 28px;
+  }
+  
+  h3{
+    font-size: 21px;
+  }
+
+}
+
+/* Phone screens */
+@media only screen and (max-width: 480px){
+  .button, .link-button{
+    width: 7.5rem;
   }
 }

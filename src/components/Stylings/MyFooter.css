@@ -1,5 +1,8 @@
 footer{
-    bottom: 0;
-    position: absolute;
     height: 2rem;
+    background-color: rgb(12, 78, 18);
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+    color: white;
 }

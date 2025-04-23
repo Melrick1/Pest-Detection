@@ -7,7 +7,7 @@
 }
 
 .home-containers{
-    max-width: 40rem;
+    width: 40%;
 }
 
 .home-welcome{
@@ -26,8 +26,52 @@
     font-size: 18px;
 }
 
+.image-container{
+    margin-top: 2rem;
+    border: 3px solid gray;
+    border-radius: 1rem;
+    width: 90%;
+    aspect-ratio: 16 / 9;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 1rem auto;
+}
+
 .deteksi{
-    margin-top: 3rem;
+    margin: 1rem 0;
     display: flex;
     justify-content: center;
+}
+
+/* Min Tablet screens */
+@media only screen and (max-width: 768px){
+    .Home{
+        gap : 1rem;
+        flex-direction: column;
+    }
+
+    .home-containers{
+        width: 80%;
+    }
+
+    .home-welcome{
+        margin-bottom: 1rem;
+    }
+}
+
+/* Phone screens */
+@media only screen and (max-width: 480px){
+    .home-containers{
+        max-width: 80%;
+        text-align: center;
+    }
+
+    .home-welcome{
+        margin-bottom: 1rem;
+    }
+
+    .home-title{
+        display: none;
+    }
 }

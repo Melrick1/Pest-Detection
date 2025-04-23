@@ -10,7 +10,7 @@ function Layout( {children, pageName} ) {
         <div className="Layout">
             <MyHeader pageName={pageName} navOpen={navOpen} setNavOpen={setNavOpen} />
             <MyNavBar navOpen={navOpen} />
-            <main>{children}</main>
+            <>{children}</>
             <MyFooter />
         </div>
     )

@@ -4,13 +4,13 @@ import "../Stylings/Help.css"
 function HelpPage() {
   return (
     <Layout pageName={"Bantuan"}>
-        <section className="Help">
+        <main className="Help">
             <h2>Cara Penggunaan Website Deteksi Hama dan Serangga</h2>
 
             {/* Step 1 */}
             <section className="step alt">
-            <img src="/images/pages/SignIn.png" alt="Step 1" className="step-image" />
-            <div className="step-text">
+            <img src="/images/pages/SignIn.png" alt="Step 1" className="step-container step-image" />
+            <div className="step-container step-text">
                 <h3>1. Melakukan Pendaftaran</h3>
                 <p>Lakukan pendaftaran akun dengan menggunakan nama, email dan password.</p>
                 <p className="note">
@@ -21,8 +21,8 @@ function HelpPage() {
 
             {/* Step 2 */}
             <section className="step">
-            <img src="/images/pages/SignUp.png" alt="Step 2" className="step-image" />
-            <div className="step-text">
+            <img src="/images/pages/SignUp.png" alt="Step 2" className="step-container step-image" />
+            <div className="step-container step-text">
                 <h3>2. Masuk ke Akun</h3>
                 <p>Lakukan Sign In menggunakan email dan password yang telah Anda daftarkan sebelumnya.</p>
                 <p className="note">
@@ -33,8 +33,8 @@ function HelpPage() {
 
             {/* Step 3 */}
             <section className="step alt">
-            <img src="/images/pages/SelectFile.png" alt="Step 3" className="step-image" />
-            <div className="step-text">
+            <img src="/images/pages/SelectFile.png" alt="Step 3" className="step-container step-image" />
+            <div className="step-container step-text">
                 <h3>3. Memilih Gambar dari Perangkat</h3>
                 <p>
                 Setelah berhasil masuk, klik ikon berbentuk kotak seperti di petunjuk agar sistem dapat langsung mengakses file manager.
@@ -50,8 +50,8 @@ function HelpPage() {
 
             {/* Step 4 */}
             <section className="step">
-            <img src="/images/pages/Selected.png" alt="Step 4" className="step-image" />
-            <div className="step-text">
+            <img src="/images/pages/Selected.png" alt="Step 4" className="step-container step-image" />
+            <div className="step-container step-text">
                 <h3>4. Memulai Deteksi</h3>
                 <p>
                 Setelah gambar berhasil dipilih, klik tombol "Deteksi" untuk memulai proses analisis menggunakan AI Gemini.
@@ -64,8 +64,8 @@ function HelpPage() {
 
             {/* Step 5 */}
             <section className="step alt">
-            <img src="/images/pages/Result.png" alt="Step 5" className="step-image" />
-            <div className="step-text">
+            <img src="/images/pages/Result.png" alt="Step 5" className="step-container step-image" />
+            <div className="step-container step-text">
                 <h3>5. Lihat Hasil Deteksi</h3>
                 <p>
                 Tunggu beberapa detik, sistem akan menampilkan hasil identifikasi secara detail hama atau serangga.
@@ -78,8 +78,8 @@ function HelpPage() {
 
             {/* Step 6 */}
             <section className="step">
-            <img src="/images/pages/Navigation.png" alt="Step 6" className="step-image" />
-            <div className="step-text">
+            <img src="/images/pages/Navigation.png" alt="Step 6" className="step-container step-image" />
+            <div className="step-container step-text">
                 <h3>6. Memindah Halaman </h3>
                 <p>
                 Untuk pindah halaman dalam sistem, perlu diakses melaului menu navigasi.
@@ -92,8 +92,8 @@ function HelpPage() {
 
             {/* Step 7 */}
             <section className="step alt">
-            <img src="/images/pages/History.png" alt="Step 6" className="step-image" />
-            <div className="step-text">
+            <img src="/images/pages/History.png" alt="Step 6" className="step-container step-image" />
+            <div className="step-container step-text">
                 <h3>7. Mengakses Riwayat Deteksi</h3>
                 <p>
                 Untuk melihat kembali hasil deteksi sebelumnya, pilih menu “Riwayat” di menu navigasi.
@@ -103,7 +103,7 @@ function HelpPage() {
                 </p>
             </div>
             </section>
-        </section>
+        </main>
     </Layout>
   )
 }

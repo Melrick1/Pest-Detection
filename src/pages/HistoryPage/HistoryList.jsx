@@ -49,11 +49,11 @@ function HistoryList() {
   
   return (
       <Layout pageName={"Riwayat"}>
-        <section className="History-list">
+        <main className="History-list">
           {!isLoggedIn ? NotLoggedIn : 
           historyList.length === 0 ? NoHistory : 
           HistoryContent}
-        </section>
+        </main>
       </Layout>
   );
 }

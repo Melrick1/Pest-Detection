@@ -7,7 +7,6 @@ import InputImage from "../../components/InputImage";
 import JsonConfig from "../../utilities/JsonConfig";
 import Layout from '../Layout';
 import '../Stylings/Home.css';
-import { image } from 'motion/react-m';
 
 function Home () {
     const { isLoggedIn, currentUser } = useAuth();
@@ -16,7 +15,7 @@ function Home () {
     const [analysisResult, setAnalysisResult] = useState(null);
     const [json, setJson] = useState();
     const [hasWritten, setHasWritten] = useState(false);
-    const [imagePreview, setImagePreview] = useState("/images/Placeholder.png")
+    const [imagePreview, setImagePreview] = useState("/images/PlaceholderInput.png")
     const navigate = useNavigate();
 
     async function makeJson(result) {
@@ -54,17 +53,17 @@ function Home () {
 
     return(
         <Layout pageName={"Beranda"}>
-            <section className='Home'>
-                <div className='home-containers title'>
+            <main className='Home'>
+                <div className='home-containers title-container'>
                     {isLoggedIn ?(
                         <h2 className='home-welcome'>Selamat datang, {currentUser.displayName}</h2>
                     ) : (
                         <h2 className='home-welcome'>Selamat datang, anda belum SignIn!</h2>
                     )}
                     
-                    <h2>Unggah gambar hama atau serangga tanaman anda di sini</h2>
+                    <h2 className="home-title">Unggah gambar hama atau serangga tanaman anda di sini</h2>
                     <p>
-                        Unggah gambar tanaman anda untuk membantu sistem mendeteksi jenis hama atau serangga, memahami dampak serangannya, serta memberikan panduan langkah-langkah penanganan yang efektif agar tanaman tetap sehat dan produktif.
+                        Unggah gambar tanaman anda untuk membantu sistem mendeteksi jenis hama atau serangga, serta memberikan panduan langkah-langkah penanganan yang efektif agar tanaman tetap sehat dan produktif.
                     </p>
                 </div>
                 <div className='home-containers image'>
@@ -77,12 +76,12 @@ function Home () {
                     />
 
                     <div className='deteksi'>
-                        <button className="button" onClick={handleDetection} disabled={imagePreview == "/images/Placeholder.png" } >
+                        <button className="button deteksi" onClick={handleDetection} disabled={imagePreview == "/images/PlaceholderInput.png" } >
                             Deteksi Hama
                         </button>
                     </div>
                 </div>
-            </section>
+            </main>
         </Layout>
     )
 };
