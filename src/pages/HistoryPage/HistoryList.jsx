@@ -25,31 +25,37 @@ function HistoryList() {
   // Page state
   const NotLoggedIn = (
     <>
-      <h2>Anda belum Sign-In!</h2>
-      <h3>Anda belum bisa melihat riwayat sebelum Sign-In</h3>
-      <Link to="/Sign-in" className="button">Sign in</Link>
+      <div className="history-information">
+        <h2>Anda belum Sign-In!</h2>
+        <h3>Anda belum bisa melihat riwayat sebelum Sign-In</h3>
+        <Link to="/Sign-in" className="button">Sign in</Link>
+      </div>
     </>
   );
 
   const NoHistory = (
     <>
-      <h2>Anda belum ada riwayat</h2>
-      <h3>Silahkan melakukan deteksi di halaman beranda</h3>
+      <div className="history-information">
+        <h2>Anda belum ada riwayat</h2>
+        <h3>Silahkan melakukan deteksi di halaman beranda</h3>
+      </div>
     </>
   );
 
   const HistoryContent = (
     <>
-      {currentHistories.map((item) => (
-        <Histories key={item.id} historyItem={item} />
-      ))}
+      <div className="History-list">   
+        {currentHistories.map((item) => (
+          <Histories key={item.id} historyItem={item} />
+        ))}
+      </div>
       <Pagination currentPage={currentPage} setSearchParams={setSearchParams} lastPage={lastPage} />
     </>
   );
   
   return (
       <Layout pageName={"Riwayat"}>
-        <main className="History-list">
+        <main className="History">
           {!isLoggedIn ? NotLoggedIn : 
           historyList.length === 0 ? NoHistory : 
           HistoryContent}

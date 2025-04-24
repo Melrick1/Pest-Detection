@@ -7,16 +7,22 @@ function Pagination({ currentPage, lastPage, setSearchParams}) {
 
     return (
         <div className="pagination">
-            {currentPage > 1 &&
-                <button className="paging-button" onClick={() => handlePageChange(currentPage - 1)}>
-                    <i class="bi bi-chevron-left"></i><span>Prev</span>
-                </button>
+            {currentPage > 1 ? (
+                    <button className="paging-button" onClick={() => handlePageChange(currentPage - 1)}>
+                        <i class="bi bi-chevron-left"></i><span>Prev</span>
+                    </button>
+                ) : (
+                    <p className='hidden'>&nbps;<br/>&nbps;</p>
+                )
             }
-            <span> Page {currentPage} </span>
-            {currentPage < lastPage &&
-                <button className="paging-button" onClick={() => handlePageChange(currentPage + 1)} >
-                    <span>Next</span><i class="bi bi-chevron-right"></i>
-                </button>
+            <span className="page-number"> Page {currentPage} </span>
+            {currentPage < lastPage ? (
+                    <button className="paging-button" onClick={() => handlePageChange(currentPage + 1)} >
+                        <span>Next</span><i class="bi bi-chevron-right"></i>
+                    </button>
+                ) : (
+                    <p className='hidden'>&nbps;<br/>&nbps;</p>
+                )
             }
         </div>
     )

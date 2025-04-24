@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: space-between;
     width: 90%;
+    height: 40px;
     padding: 1rem;
     background-color: rgb(150, 150, 150);
     border: 1px solid black;
@@ -16,4 +17,11 @@
 
 .history-date p{
     font-size: 14px;
+}
+
+
+@media only screen and (max-width: 480px){
+    .history-item{
+        font-size: 14px;
+    }
 }

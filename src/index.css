@@ -130,6 +130,7 @@ a:active{
 
 .hidden{
   visibility: hidden;
+  width: 5rem;
 }
 
 .Layout{
