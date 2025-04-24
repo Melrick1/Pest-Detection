@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router'
 import { ResetPasswordReq } from '../../utilities/AuthManager';
-import InputText from '../../components/InputText';
 import InputEmail from '../../components/InputEmail';
 
 function ForgotPass () {
